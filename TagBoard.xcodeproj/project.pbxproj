@@ -8,22 +8,85 @@
 
 /* Begin PBXBuildFile section */
 		D2B8983A2370DE6600738821 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B898392370DE6600738821 /* AppDelegate.swift */; };
-		D2B8983C2370DE6600738821 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8983B2370DE6600738821 /* SceneDelegate.swift */; };
 		D2B8983E2370DE6600738821 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8983D2370DE6600738821 /* ViewController.swift */; };
-		D2B898412370DE6600738821 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2B8983F2370DE6600738821 /* Main.storyboard */; };
 		D2B898432370DE6900738821 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B898422370DE6900738821 /* Assets.xcassets */; };
 		D2B898462370DE6900738821 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2B898442370DE6900738821 /* LaunchScreen.storyboard */; };
+		D2B8985423711E9900738821 /* FlowEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8984E23711E9900738821 /* FlowEvent.swift */; };
+		D2B8985523711E9900738821 /* NavigationControllerCoordinatorsTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8984F23711E9900738821 /* NavigationControllerCoordinatorsTracker.swift */; };
+		D2B8985623711E9900738821 /* FlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8985023711E9900738821 /* FlowCoordinator.swift */; };
+		D2B8985723711E9900738821 /* CoordinatorsTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8985123711E9900738821 /* CoordinatorsTracker.swift */; };
+		D2B8985823711E9900738821 /* NavigationFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8985223711E9900738821 /* NavigationFlowCoordinator.swift */; };
+		D2B8985923711E9900738821 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8985323711E9900738821 /* Coordinator.swift */; };
+		D2B8985B23711EEF00738821 /* UIViewController+LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8985A23711EEF00738821 /* UIViewController+LoadingView.swift */; };
+		D2B8986023711F1B00738821 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8985F23711F1B00738821 /* ApplicationCoordinator.swift */; };
+		D2B8986F23711F4600738821 /* RocketNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2B8986923711F3E00738821 /* RocketNetworking.framework */; };
+		D2B8987023711F4600738821 /* RocketNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2B8986923711F3E00738821 /* RocketNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2B898752371230C00738821 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B898742371230C00738821 /* UserDefaultsManager.swift */; };
+		D2B89878237123F200738821 /* TagBoardApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B89877237123F200738821 /* TagBoardApi.swift */; };
+		D2B8987C2371246D00738821 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8987B2371246D00738821 /* APIConstants.swift */; };
+		D2B8987E2371256000738821 /* InitialConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8987D2371256000738821 /* InitialConfiguration.swift */; };
+		D2B898802371259900738821 /* BundleUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8987F2371259900738821 /* BundleUtil.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D2B8986823711F3E00738821 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D2B8986223711F3E00738821 /* RocketNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D23FE98421FCD91800EC0EB5;
+			remoteInfo = RocketNetworking;
+		};
+		D2B8986A23711F3E00738821 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D2B8986223711F3E00738821 /* RocketNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D23FE98D21FCD91800EC0EB5;
+			remoteInfo = RocketNetworkingTests;
+		};
+		D2B8986C23711F3E00738821 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D2B8986223711F3E00738821 /* RocketNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2A7DCC22318714700150A98;
+			remoteInfo = RocketWatch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D2B8987123711F4600738821 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D2B8987023711F4600738821 /* RocketNetworking.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D2B898362370DE6600738821 /* TagBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TagBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B898392370DE6600738821 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D2B8983B2370DE6600738821 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D2B8983D2370DE6600738821 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D2B898402370DE6600738821 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D2B898422370DE6900738821 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2B898452370DE6900738821 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2B898472370DE6900738821 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2B8984E23711E9900738821 /* FlowEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowEvent.swift; sourceTree = "<group>"; };
+		D2B8984F23711E9900738821 /* NavigationControllerCoordinatorsTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerCoordinatorsTracker.swift; sourceTree = "<group>"; };
+		D2B8985023711E9900738821 /* FlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowCoordinator.swift; sourceTree = "<group>"; };
+		D2B8985123711E9900738821 /* CoordinatorsTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorsTracker.swift; sourceTree = "<group>"; };
+		D2B8985223711E9900738821 /* NavigationFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationFlowCoordinator.swift; sourceTree = "<group>"; };
+		D2B8985323711E9900738821 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		D2B8985A23711EEF00738821 /* UIViewController+LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+LoadingView.swift"; sourceTree = "<group>"; };
+		D2B8985F23711F1B00738821 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		D2B8986223711F3E00738821 /* RocketNetworking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RocketNetworking.xcodeproj; path = ../../RocketNetworking/RocketNetworking.xcodeproj; sourceTree = "<group>"; };
+		D2B898742371230C00738821 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		D2B89877237123F200738821 /* TagBoardApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBoardApi.swift; sourceTree = "<group>"; };
+		D2B8987B2371246D00738821 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		D2B8987D2371256000738821 /* InitialConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialConfiguration.swift; sourceTree = "<group>"; };
+		D2B8987F2371259900738821 /* BundleUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleUtil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2B8986F23711F4600738821 /* RocketNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,8 +104,10 @@
 		D2B8982D2370DE6600738821 = {
 			isa = PBXGroup;
 			children = (
+				D2B8986223711F3E00738821 /* RocketNetworking.xcodeproj */,
 				D2B898382370DE6600738821 /* TagBoard */,
 				D2B898372370DE6600738821 /* Products */,
+				D2B8986E23711F4600738821 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +122,107 @@
 		D2B898382370DE6600738821 /* TagBoard */ = {
 			isa = PBXGroup;
 			children = (
-				D2B898392370DE6600738821 /* AppDelegate.swift */,
-				D2B8983B2370DE6600738821 /* SceneDelegate.swift */,
-				D2B8983D2370DE6600738821 /* ViewController.swift */,
-				D2B8983F2370DE6600738821 /* Main.storyboard */,
+				D2B89876237123E500738821 /* Networking */,
+				D2B8987223711F7300738821 /* Application */,
+				D2B8986123711F2300738821 /* ViewControllers */,
+				D2B8985E23711F0E00738821 /* Coordinators */,
+				D2B8985C23711EF400738821 /* Utility */,
+				D2B8984D23711E9900738821 /* NavigationFlowCoordinator */,
 				D2B898422370DE6900738821 /* Assets.xcassets */,
 				D2B898442370DE6900738821 /* LaunchScreen.storyboard */,
 				D2B898472370DE6900738821 /* Info.plist */,
 			);
 			path = TagBoard;
+			sourceTree = "<group>";
+		};
+		D2B8984D23711E9900738821 /* NavigationFlowCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				D2B8984E23711E9900738821 /* FlowEvent.swift */,
+				D2B8984F23711E9900738821 /* NavigationControllerCoordinatorsTracker.swift */,
+				D2B8985023711E9900738821 /* FlowCoordinator.swift */,
+				D2B8985123711E9900738821 /* CoordinatorsTracker.swift */,
+				D2B8985223711E9900738821 /* NavigationFlowCoordinator.swift */,
+				D2B8985323711E9900738821 /* Coordinator.swift */,
+			);
+			path = NavigationFlowCoordinator;
+			sourceTree = "<group>";
+		};
+		D2B8985C23711EF400738821 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				D2B89873237122FB00738821 /* Utility */,
+				D2B8985D23711EFC00738821 /* Extensions */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		D2B8985D23711EFC00738821 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D2B8985A23711EEF00738821 /* UIViewController+LoadingView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D2B8985E23711F0E00738821 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				D2B8985F23711F1B00738821 /* ApplicationCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		D2B8986123711F2300738821 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D2B8983D2370DE6600738821 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D2B8986323711F3E00738821 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2B8986923711F3E00738821 /* RocketNetworking.framework */,
+				D2B8986B23711F3E00738821 /* RocketNetworkingTests.xctest */,
+				D2B8986D23711F3E00738821 /* RocketWatch.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D2B8986E23711F4600738821 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D2B8987223711F7300738821 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				D2B898392370DE6600738821 /* AppDelegate.swift */,
+				D2B8987D2371256000738821 /* InitialConfiguration.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		D2B89873237122FB00738821 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				D2B898742371230C00738821 /* UserDefaultsManager.swift */,
+				D2B8987F2371259900738821 /* BundleUtil.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		D2B89876237123E500738821 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				D2B89877237123F200738821 /* TagBoardApi.swift */,
+				D2B8987B2371246D00738821 /* APIConstants.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,6 +235,7 @@
 				D2B898322370DE6600738821 /* Sources */,
 				D2B898332370DE6600738821 /* Frameworks */,
 				D2B898342370DE6600738821 /* Resources */,
+				D2B8987123711F4600738821 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -113,12 +272,42 @@
 			mainGroup = D2B8982D2370DE6600738821;
 			productRefGroup = D2B898372370DE6600738821 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D2B8986323711F3E00738821 /* Products */;
+					ProjectRef = D2B8986223711F3E00738821 /* RocketNetworking.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D2B898352370DE6600738821 /* TagBoard */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D2B8986923711F3E00738821 /* RocketNetworking.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RocketNetworking.framework;
+			remoteRef = D2B8986823711F3E00738821 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D2B8986B23711F3E00738821 /* RocketNetworkingTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RocketNetworkingTests.xctest;
+			remoteRef = D2B8986A23711F3E00738821 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D2B8986D23711F3E00738821 /* RocketWatch.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RocketWatch.framework;
+			remoteRef = D2B8986C23711F3E00738821 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D2B898342370DE6600738821 /* Resources */ = {
@@ -127,7 +316,6 @@
 			files = (
 				D2B898462370DE6900738821 /* LaunchScreen.storyboard in Resources */,
 				D2B898432370DE6900738821 /* Assets.xcassets in Resources */,
-				D2B898412370DE6600738821 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +326,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2B8985923711E9900738821 /* Coordinator.swift in Sources */,
+				D2B8985823711E9900738821 /* NavigationFlowCoordinator.swift in Sources */,
+				D2B8987C2371246D00738821 /* APIConstants.swift in Sources */,
 				D2B8983E2370DE6600738821 /* ViewController.swift in Sources */,
+				D2B8985423711E9900738821 /* FlowEvent.swift in Sources */,
+				D2B898752371230C00738821 /* UserDefaultsManager.swift in Sources */,
+				D2B8985623711E9900738821 /* FlowCoordinator.swift in Sources */,
+				D2B8986023711F1B00738821 /* ApplicationCoordinator.swift in Sources */,
+				D2B8985B23711EEF00738821 /* UIViewController+LoadingView.swift in Sources */,
+				D2B8985723711E9900738821 /* CoordinatorsTracker.swift in Sources */,
 				D2B8983A2370DE6600738821 /* AppDelegate.swift in Sources */,
-				D2B8983C2370DE6600738821 /* SceneDelegate.swift in Sources */,
+				D2B898802371259900738821 /* BundleUtil.swift in Sources */,
+				D2B89878237123F200738821 /* TagBoardApi.swift in Sources */,
+				D2B8985523711E9900738821 /* NavigationControllerCoordinatorsTracker.swift in Sources */,
+				D2B8987E2371256000738821 /* InitialConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D2B8983F2370DE6600738821 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D2B898402370DE6600738821 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D2B898442370DE6900738821 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -284,9 +476,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUILD_ENVIRONMENT = 0;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2J9S2B5EZD;
 				INFOPLIST_FILE = TagBoard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,9 +496,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUILD_ENVIRONMENT = 4;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2J9S2B5EZD;
 				INFOPLIST_FILE = TagBoard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
