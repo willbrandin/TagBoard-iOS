@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D2B8983A2370DE6600738821 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B898392370DE6600738821 /* AppDelegate.swift */; };
-		D2B8983E2370DE6600738821 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8983D2370DE6600738821 /* ViewController.swift */; };
+		D2B8983E2370DE6600738821 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8983D2370DE6600738821 /* HomeViewController.swift */; };
 		D2B898432370DE6900738821 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B898422370DE6900738821 /* Assets.xcassets */; };
 		D2B898462370DE6900738821 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2B898442370DE6900738821 /* LaunchScreen.storyboard */; };
 		D2B8985423711E9900738821 /* FlowEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8984E23711E9900738821 /* FlowEvent.swift */; };
@@ -69,7 +69,7 @@
 /* Begin PBXFileReference section */
 		D2B898362370DE6600738821 /* TagBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TagBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B898392370DE6600738821 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D2B8983D2370DE6600738821 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D2B8983D2370DE6600738821 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D2B898422370DE6900738821 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2B898452370DE6900738821 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2B898472370DE6900738821 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 		D2B8986123711F2300738821 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				D2B8983D2370DE6600738821 /* ViewController.swift */,
+				D2B8983D2370DE6600738821 /* HomeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -329,7 +329,7 @@
 				D2B8985923711E9900738821 /* Coordinator.swift in Sources */,
 				D2B8985823711E9900738821 /* NavigationFlowCoordinator.swift in Sources */,
 				D2B8987C2371246D00738821 /* APIConstants.swift in Sources */,
-				D2B8983E2370DE6600738821 /* ViewController.swift in Sources */,
+				D2B8983E2370DE6600738821 /* HomeViewController.swift in Sources */,
 				D2B8985423711E9900738821 /* FlowEvent.swift in Sources */,
 				D2B898752371230C00738821 /* UserDefaultsManager.swift in Sources */,
 				D2B8985623711E9900738821 /* FlowCoordinator.swift in Sources */,

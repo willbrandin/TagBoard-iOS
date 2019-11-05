@@ -12,7 +12,6 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    private var applicationCoordinator: ApplicationCoordinator?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -25,11 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Configuration
     
     func setupWindow() {
-        applicationCoordinator = ApplicationCoordinator()
-        applicationCoordinator?.start()
-        
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = self.applicationCoordinator?.navigationController
+        window?.rootViewController = createHomeViewController()
         window?.makeKeyAndVisible()
+    }
+    
+    func createHomeViewController() -> UIViewController {
+        let home = HomeViewController()
+        return home
     }
 }

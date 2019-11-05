@@ -11,7 +11,9 @@ import UIKit
 class ApplicationCoordinator: NavigationFlowCoordinator {
     
     override func createMainViewController() -> UIViewController? {
-        return ViewController()
+        let home = HomeViewController()
+        home.viewControllers = [TBHomeListViewController(), TagViewController()]
+        return home
     }
     
 }

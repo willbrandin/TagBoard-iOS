@@ -28,5 +28,4 @@ struct UserDefaultManager {
             UserDefaults.standard.set(newValue, forKey: bearerTokenKey)
         }
     }
-    
 }
