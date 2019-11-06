@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D20A6EEE23736B1E00A04436 /* TBHomeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20A6EED23736B1E00A04436 /* TBHomeListViewModel.swift */; };
+		D22EF19623736742004A8E35 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22EF19523736742004A8E35 /* HomeViewModel.swift */; };
 		D2B8983A2370DE6600738821 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B898392370DE6600738821 /* AppDelegate.swift */; };
 		D2B8983E2370DE6600738821 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B8983D2370DE6600738821 /* HomeViewController.swift */; };
 		D2B898432370DE6900738821 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B898422370DE6900738821 /* Assets.xcassets */; };
@@ -71,6 +73,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D20A6EED23736B1E00A04436 /* TBHomeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBHomeListViewModel.swift; sourceTree = "<group>"; };
+		D22EF19523736742004A8E35 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		D2B898362370DE6600738821 /* TagBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TagBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B898392370DE6600738821 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2B8983D2370DE6600738821 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +113,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D20A6EE923736B0E00A04436 /* TagBoardList */ = {
+			isa = PBXGroup;
+			children = (
+				D2B898B323725C5B00738821 /* TBHomeListViewController.swift */,
+				D20A6EED23736B1E00A04436 /* TBHomeListViewModel.swift */,
+			);
+			path = TagBoardList;
+			sourceTree = "<group>";
+		};
+		D22EF19123736732004A8E35 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D2B8983D2370DE6600738821 /* HomeViewController.swift */,
+				D22EF19523736742004A8E35 /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		D2B8982D2370DE6600738821 = {
 			isa = PBXGroup;
 			children = (
@@ -185,8 +207,8 @@
 		D2B8986123711F2300738821 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				D2B8983D2370DE6600738821 /* HomeViewController.swift */,
-				D2B898B323725C5B00738821 /* TBHomeListViewController.swift */,
+				D20A6EE923736B0E00A04436 /* TagBoardList */,
+				D22EF19123736732004A8E35 /* Home */,
 				D2B898B523725C7400738821 /* TagBoardViewController.swift */,
 			);
 			path = ViewControllers;
@@ -349,6 +371,7 @@
 				D2B8985923711E9900738821 /* Coordinator.swift in Sources */,
 				D2B8985823711E9900738821 /* NavigationFlowCoordinator.swift in Sources */,
 				D2B8987C2371246D00738821 /* APIConstants.swift in Sources */,
+				D22EF19623736742004A8E35 /* HomeViewModel.swift in Sources */,
 				D2B8983E2370DE6600738821 /* HomeViewController.swift in Sources */,
 				D2B898B02372580100738821 /* User.swift in Sources */,
 				D2B8985423711E9900738821 /* FlowEvent.swift in Sources */,
@@ -360,6 +383,7 @@
 				D2B8983A2370DE6600738821 /* AppDelegate.swift in Sources */,
 				D2B898B623725C7400738821 /* TagBoardViewController.swift in Sources */,
 				D2B898802371259900738821 /* BundleUtil.swift in Sources */,
+				D20A6EEE23736B1E00A04436 /* TBHomeListViewModel.swift in Sources */,
 				D2B898B2237258BF00738821 /* TagBoard.swift in Sources */,
 				D2B89878237123F200738821 /* TagBoardApi.swift in Sources */,
 				D2B8985523711E9900738821 /* NavigationControllerCoordinatorsTracker.swift in Sources */,

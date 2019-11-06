@@ -10,7 +10,14 @@ import UIKit
 
 class TBHomeListViewController: UITableViewController {
     
+    // MARK: - Properties
+
     var onSelect: ((Int) -> Void)?
+    var onTapAdd: (() -> Void)?
+    var onTapSettings: (() -> Void)?
+    var onDelete: ((Int) -> Void)?
+    
+    private var viewModel = TBHomeListViewModel()
     
     // MARK: - Initializer
     
@@ -36,9 +43,23 @@ class TBHomeListViewController: UITableViewController {
             navigationItem.leftBarButtonItem = UIBarButtonItem(image: settingsIcon, style: .plain, target: self, action: #selector(didTapSettings))
             navigationItem.rightBarButtonItem = UIBarButtonItem(image: addIcon, style: .plain, target: self, action: #selector(didTapAdd))
         }
+        
+        subscribeToViewModel()
+    }
+    
+    // MARK: - Methods
+    
+    func setDataSource(_ tagBoards: [TagBoard]) {
+        viewModel.injectDataSource(tagBoards)
     }
     
     // MARK: - Private Methods
+    
+    private func subscribeToViewModel() {
+        viewModel.onDataSourceUpdated = { [weak self] in
+            self?.tableView.reloadData()
+        }
+    }
     
     private func createNewCategory() {
         /**
@@ -51,21 +72,21 @@ class TBHomeListViewController: UITableViewController {
     
     @objc private func didTapSettings() {
         print("SETTINGS")
+        onTapSettings?()
     }
     
     @objc private func didTapAdd() {
-        print("ADD LIST")
+        onTapAdd?()
     }
     
     // MARK: - UITableViewDelegate && UITableViewDataSource
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        return cell
+        return viewModel.cellForRow(tableView, cellForRowAt: indexPath)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return viewModel.numberOfSections
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -73,7 +94,7 @@ class TBHomeListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return viewModel.numberOfRows
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -90,5 +111,15 @@ class TBHomeListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return nil
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            onDelete?(indexPath.row)
+        }
     }
 }

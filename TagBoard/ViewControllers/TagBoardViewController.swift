@@ -15,6 +15,5 @@ class TagBoardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Edit Tag"
     }
 }

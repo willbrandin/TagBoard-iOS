@@ -10,8 +10,8 @@ import Foundation
 
 struct APIConstants {
     struct EndPoint {
-        static let local = ""
-        static let staging = ""
+        static let local = "http://localhost:5000/api/"
+        static let staging = "https://tagboard-stg.herokuapp.com/api/"
         static let production = ""
     }
     

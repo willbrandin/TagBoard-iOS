@@ -12,6 +12,6 @@ struct TagBoard: Codable {
     let id: String?
     let title: String
     let tags: [String]
-    let createdDate: String
+    let createdDate: String?
     let lastUpdatedDate: String?
 }
