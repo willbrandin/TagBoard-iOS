@@ -17,9 +17,27 @@ struct APIConstants {
     
     struct Users {
         static let users = "users"
+        
+        static func id(_ user: User) -> String {
+            guard let id = user.id else {
+                print("User id is nil")
+                return ""
+            }
+            
+            return "\(Users.users)/\(id)"
+        }
     }
     
     struct TagBoards {
         static let tagBoards = "tag-boards"
+        
+        static func id(_ tagBoard: TagBoard) -> String {
+            guard let id = tagBoard.id else {
+                print("TagBoard id is nil")
+                return ""
+            }
+            
+            return "\(TagBoards.tagBoards)/\(id)"
+        }
     }
 }

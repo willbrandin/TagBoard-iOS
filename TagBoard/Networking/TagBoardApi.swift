@@ -18,7 +18,12 @@ struct NetworkManager {
 }
 
 enum TagBoardApi: EndPointType {
-    case signIn
+    case signInUser(User)
+    case updateUser(User)
+    case addTagBoard(TagBoard)
+    case deleteTagBoard(id: String)
+    case updateTagBoard(TagBoard)
+    case getTagBoards
     
     var environmentBaseURL: String {
         switch NetworkManager.sharedInstance.environment {
@@ -43,22 +48,49 @@ enum TagBoardApi: EndPointType {
     
     var path: String {
         switch self {
-        case .signIn:
+        case .signInUser:
             return APIConstants.Users.users
+            
+        case .updateUser(let user):
+            return APIConstants.Users.id(user)
+            
+        case .addTagBoard, .getTagBoards:
+            return APIConstants.TagBoards.tagBoards
+            
+        case .updateTagBoard(let board):
+            return APIConstants.TagBoards.id(board)
+            
+        case .deleteTagBoard(id: let id):
+            return "\(APIConstants.TagBoards.tagBoards)/\(id)"
         }
     }
     
     var httpMethod: HTTPMethod {
         switch self {
-        case .signIn:
+        case .signInUser, .addTagBoard:
             return .post
+            
+        case .deleteTagBoard:
+            return .delete
+            
+        case .updateTagBoard, .updateUser:
+            return .put
+            
+        case .getTagBoards:
+            return .get
         }
     }
     
     var task: HTTPTask {
         switch self {
-        case .signIn:
-            return .requestParameters(bodyParameters: nil, urlParameters: nil)
+        case .signInUser(let user), .updateUser(let user):
+            return .requestParameters(bodyParameters: user, urlParameters: nil)
+            
+        case .addTagBoard(let board), .updateTagBoard(let board):
+            return .requestParameters(bodyParameters: board, urlParameters: nil)
+            
+        case .getTagBoards, .deleteTagBoard:
+            return .request
         }
     }
     
