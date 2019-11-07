@@ -44,6 +44,9 @@ class TBHomeListViewController: UITableViewController {
             navigationItem.rightBarButtonItem = UIBarButtonItem(image: addIcon, style: .plain, target: self, action: #selector(didTapAdd))
         }
         
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress(longPressGestureRecognizer:)))
+        view.addGestureRecognizer(longPressRecognizer)
+        
         subscribeToViewModel()
     }
     
@@ -70,6 +73,18 @@ class TBHomeListViewController: UITableViewController {
     
     // MARK: - Actions
     
+    @objc private func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer) {
+        if longPressGestureRecognizer.state == .began {
+
+            let touchPoint = longPressGestureRecognizer.location(in: tableView)
+            if let indexPath = tableView.indexPathForRow(at: touchPoint) {
+                // your code here, get the row for the indexPath or do whatever you want
+                print("LONG PRESS AT - \(indexPath)")
+                navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(didTapCancel))
+            }
+        }
+    }
+    
     @objc private func didTapSettings() {
         print("SETTINGS")
         onTapSettings?()
@@ -79,7 +94,17 @@ class TBHomeListViewController: UITableViewController {
         onTapAdd?()
     }
     
-    // MARK: - UITableViewDelegate && UITableViewDataSource
+    @objc private func didTapCancel() {
+        if #available(iOS 13.0, *) {
+            let addIcon = UIImage(systemName: "plus")
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: addIcon, style: .plain, target: self, action: #selector(didTapAdd))
+        }
+    }
+}
+
+// MARK: - UITableViewDelegate && UITableViewDataSource
+
+extension TBHomeListViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return viewModel.cellForRow(tableView, cellForRowAt: indexPath)

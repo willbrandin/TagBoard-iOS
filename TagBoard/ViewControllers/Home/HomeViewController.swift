@@ -35,6 +35,16 @@ class HomeViewController: UISplitViewController, UISplitViewControllerDelegate, 
             self.tagListViewController.setDataSource(tagBoards)
         }
         
+        viewModel.onIsLoading = { [weak self] isLoading in
+            DispatchQueue.main.async {
+                if isLoading {
+                    self?.showLoadingView()
+                } else {
+                    self?.hideLoadingView()
+                }
+            }
+        }
+        
         viewModel.requestList()
     }
     
@@ -48,6 +58,7 @@ class HomeViewController: UISplitViewController, UISplitViewControllerDelegate, 
                 return
             }
             
+            // TODO: - For now push, but this will be the copy action.
             self?.showTagViewControllerAsDetail(for: board)
         }
         

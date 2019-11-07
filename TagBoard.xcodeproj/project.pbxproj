@@ -32,6 +32,7 @@
 		D2B898B2237258BF00738821 /* TagBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B898B1237258BF00738821 /* TagBoard.swift */; };
 		D2B898B423725C5B00738821 /* TBHomeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B898B323725C5B00738821 /* TBHomeListViewController.swift */; };
 		D2B898B623725C7400738821 /* TagBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B898B523725C7400738821 /* TagBoardViewController.swift */; };
+		D2D60089237469020072B197 /* TagBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D60088237469020072B197 /* TagBoardViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		D2B898B1237258BF00738821 /* TagBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBoard.swift; sourceTree = "<group>"; };
 		D2B898B323725C5B00738821 /* TBHomeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBHomeListViewController.swift; sourceTree = "<group>"; };
 		D2B898B523725C7400738821 /* TagBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBoardViewController.swift; sourceTree = "<group>"; };
+		D2D60088237469020072B197 /* TagBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBoardViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,9 +209,9 @@
 		D2B8986123711F2300738821 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D2D60084237468F00072B197 /* TagBoard */,
 				D20A6EE923736B0E00A04436 /* TagBoardList */,
 				D22EF19123736732004A8E35 /* Home */,
-				D2B898B523725C7400738821 /* TagBoardViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -265,6 +267,15 @@
 				D2B898B1237258BF00738821 /* TagBoard.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		D2D60084237468F00072B197 /* TagBoard */ = {
+			isa = PBXGroup;
+			children = (
+				D2B898B523725C7400738821 /* TagBoardViewController.swift */,
+				D2D60088237469020072B197 /* TagBoardViewModel.swift */,
+			);
+			path = TagBoard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -378,6 +389,7 @@
 				D2B898752371230C00738821 /* UserDefaultsManager.swift in Sources */,
 				D2B8985623711E9900738821 /* FlowCoordinator.swift in Sources */,
 				D2B8986023711F1B00738821 /* ApplicationCoordinator.swift in Sources */,
+				D2D60089237469020072B197 /* TagBoardViewModel.swift in Sources */,
 				D2B8985B23711EEF00738821 /* UIViewController+LoadingView.swift in Sources */,
 				D2B8985723711E9900738821 /* CoordinatorsTracker.swift in Sources */,
 				D2B8983A2370DE6600738821 /* AppDelegate.swift in Sources */,
