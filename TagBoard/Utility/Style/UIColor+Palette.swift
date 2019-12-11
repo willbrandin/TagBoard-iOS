@@ -9,5 +9,9 @@
 import UIKit
 
 extension UIColor {
-    static let background: UIColor = .white
+    static let primary: UIColor = UIColor(named: "Primary")!
+    static let background: UIColor = UIColor(named: "PrimaryBackground")!
+    static let secondaryBackground: UIColor = UIColor(named: "SecondaryBackground")!
+    static let placeholder: UIColor = UIColor(named: "Placeholder")!
+    static let primaryText: UIColor = UIColor.black
 }

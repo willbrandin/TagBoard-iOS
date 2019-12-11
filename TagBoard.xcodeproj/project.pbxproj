@@ -36,6 +36,10 @@
 		D2D600962374AB7E0072B197 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D600952374AB7E0072B197 /* UIView+Constraints.swift */; };
 		D2D600992374AD9A0072B197 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D600982374AD9A0072B197 /* Style.swift */; };
 		D2D6009B2374AE710072B197 /* UIColor+Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D6009A2374AE710072B197 /* UIColor+Palette.swift */; };
+		D2F996CC23A18C390075234E /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F996CB23A18C390075234E /* LandingViewController.swift */; };
+		D2F996CE23A18C410075234E /* LandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F996CD23A18C410075234E /* LandingViewModel.swift */; };
+		D2F996D023A18CBB0075234E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2F996CF23A18CBB0075234E /* Colors.xcassets */; };
+		D2F996D223A18F7D0075234E /* UIImage+Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F996D123A18F7D0075234E /* UIImage+Icons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +111,11 @@
 		D2D600952374AB7E0072B197 /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		D2D600982374AD9A0072B197 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		D2D6009A2374AE710072B197 /* UIColor+Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Palette.swift"; sourceTree = "<group>"; };
+		D2F996CB23A18C390075234E /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		D2F996CD23A18C410075234E /* LandingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewModel.swift; sourceTree = "<group>"; };
+		D2F996CF23A18CBB0075234E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		D2F996D123A18F7D0075234E /* UIImage+Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Icons.swift"; sourceTree = "<group>"; };
+		D2F996D523A1922A0075234E /* TagBoard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TagBoard.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +169,7 @@
 		D2B898382370DE6600738821 /* TagBoard */ = {
 			isa = PBXGroup;
 			children = (
+				D2F996D523A1922A0075234E /* TagBoard.entitlements */,
 				D2B898AB237257F800738821 /* Models */,
 				D2B89876237123E500738821 /* Networking */,
 				D2B8987223711F7300738821 /* Application */,
@@ -168,6 +178,7 @@
 				D2B8985C23711EF400738821 /* Utility */,
 				D2B8984D23711E9900738821 /* NavigationFlowCoordinator */,
 				D2B898422370DE6900738821 /* Assets.xcassets */,
+				D2F996CF23A18CBB0075234E /* Colors.xcassets */,
 				D2B898442370DE6900738821 /* LaunchScreen.storyboard */,
 				D2B898472370DE6900738821 /* Info.plist */,
 			);
@@ -217,6 +228,7 @@
 		D2B8986123711F2300738821 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D2F996C723A18C290075234E /* Landing */,
 				D22EF19123736732004A8E35 /* Home */,
 				D20A6EE923736B0E00A04436 /* TagBoardList */,
 				D2D60084237468F00072B197 /* TagBoard */,
@@ -291,8 +303,18 @@
 			children = (
 				D2D6009A2374AE710072B197 /* UIColor+Palette.swift */,
 				D2D600982374AD9A0072B197 /* Style.swift */,
+				D2F996D123A18F7D0075234E /* UIImage+Icons.swift */,
 			);
 			path = Style;
+			sourceTree = "<group>";
+		};
+		D2F996C723A18C290075234E /* Landing */ = {
+			isa = PBXGroup;
+			children = (
+				D2F996CB23A18C390075234E /* LandingViewController.swift */,
+				D2F996CD23A18C410075234E /* LandingViewModel.swift */,
+			);
+			path = Landing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -384,6 +406,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2F996D023A18CBB0075234E /* Colors.xcassets in Resources */,
 				D2B898462370DE6900738821 /* LaunchScreen.storyboard in Resources */,
 				D2B898432370DE6900738821 /* Assets.xcassets in Resources */,
 			);
@@ -398,6 +421,7 @@
 			files = (
 				D2B8985923711E9900738821 /* Coordinator.swift in Sources */,
 				D2B8985823711E9900738821 /* NavigationFlowCoordinator.swift in Sources */,
+				D2F996D223A18F7D0075234E /* UIImage+Icons.swift in Sources */,
 				D2B8987C2371246D00738821 /* APIConstants.swift in Sources */,
 				D22EF19623736742004A8E35 /* HomeViewModel.swift in Sources */,
 				D2B8983E2370DE6600738821 /* HomeViewController.swift in Sources */,
@@ -412,6 +436,7 @@
 				D2B8985723711E9900738821 /* CoordinatorsTracker.swift in Sources */,
 				D2D6009B2374AE710072B197 /* UIColor+Palette.swift in Sources */,
 				D2B8983A2370DE6600738821 /* AppDelegate.swift in Sources */,
+				D2F996CE23A18C410075234E /* LandingViewModel.swift in Sources */,
 				D2B898B623725C7400738821 /* TagBoardViewController.swift in Sources */,
 				D2B898802371259900738821 /* BundleUtil.swift in Sources */,
 				D20A6EEE23736B1E00A04436 /* TBHomeListViewModel.swift in Sources */,
@@ -420,6 +445,7 @@
 				D2D600962374AB7E0072B197 /* UIView+Constraints.swift in Sources */,
 				D2B8985523711E9900738821 /* NavigationControllerCoordinatorsTracker.swift in Sources */,
 				D2B8987E2371256000738821 /* InitialConfiguration.swift in Sources */,
+				D2F996CC23A18C390075234E /* LandingViewController.swift in Sources */,
 				D2B898B423725C5B00738821 /* TBHomeListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -557,6 +583,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUILD_ENVIRONMENT = 0;
+				CODE_SIGN_ENTITLEMENTS = TagBoard/TagBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2J9S2B5EZD;
 				INFOPLIST_FILE = TagBoard/Info.plist;
@@ -577,6 +604,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUILD_ENVIRONMENT = 4;
+				CODE_SIGN_ENTITLEMENTS = TagBoard/TagBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2J9S2B5EZD;
 				INFOPLIST_FILE = TagBoard/Info.plist;

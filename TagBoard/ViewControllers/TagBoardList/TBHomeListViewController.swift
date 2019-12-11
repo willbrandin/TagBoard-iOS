@@ -35,7 +35,7 @@ class TBHomeListViewController: UITableViewController {
         super.viewDidLoad()
         
         title = "Tags"
-        view.backgroundColor = .white
+        view.backgroundColor = .background
         
         if #available(iOS 13.0, *) {
             let settingsIcon = UIImage(systemName: "gear")

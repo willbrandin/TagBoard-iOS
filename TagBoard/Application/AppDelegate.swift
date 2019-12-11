@@ -25,12 +25,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setupWindow() {
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = createHomeViewController()
+        window?.rootViewController = createLandingViewController()
         window?.makeKeyAndVisible()
     }
     
     func createHomeViewController() -> UIViewController {
         let home = HomeViewController()
         return home
+    }
+    
+    func createLandingViewController() -> UIViewController {
+        if #available(iOS 13.0, *) {
+            let landing = LandingViewController()
+            
+            landing.onComplete = { [weak self] in
+                self?.window?.rootViewController = self?.createHomeViewController()
+            }
+            
+            return landing
+        }
+        
+        return UIViewController()
     }
 }

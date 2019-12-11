@@ -16,8 +16,15 @@ struct Style {
     }
     
     struct Layout {
+        /// 12
         static let margin: CGFloat = 12
+        /// 24
         static let marginXL: CGFloat = 24
+        /// 8
         static let innerSpacing: CGFloat = 8
+        /// 48
+        static let buttonHeight: CGFloat = 48
+        /// 336
+        static let maxButtonWidth: CGFloat = 336
     }
 }

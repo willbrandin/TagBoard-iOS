@@ -75,7 +75,7 @@ class TagBoardViewController: UIViewController {
         
         tagsTextView.delegate = self
         tagsTextView.text = "#Enter #Your #Hashtags #Here"
-        tagsTextView.textColor = .lightGray
+        tagsTextView.textColor = .placeholder
         tagsTextView.font = Style.Font.body
     }
     
@@ -88,16 +88,16 @@ class TagBoardViewController: UIViewController {
 
 extension TagBoardViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.textColor == .lightGray {
+        if textView.textColor == .placeholder {
             tagsTextView.text = nil
-            tagsTextView.textColor = .black
+            tagsTextView.textColor = .primaryText
         }
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             tagsTextView.text = "#Enter #Your #Hashtags #Here"
-            tagsTextView.textColor = .lightGray
+            tagsTextView.textColor = .placeholder
         }
     }
 }
