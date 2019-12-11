@@ -18,7 +18,7 @@ class TBHomeListViewController: UITableViewController {
     var onDelete: ((Int) -> Void)?
     
     private var viewModel = TBHomeListViewModel()
-    
+        
     // MARK: - Initializer
     
     init() {
@@ -35,15 +35,20 @@ class TBHomeListViewController: UITableViewController {
         super.viewDidLoad()
         
         title = "Tags"
+        view.backgroundColor = .white
         
         if #available(iOS 13.0, *) {
             let settingsIcon = UIImage(systemName: "gear")
             let addIcon = UIImage(systemName: "plus")
             
             navigationItem.leftBarButtonItem = UIBarButtonItem(image: settingsIcon, style: .plain, target: self, action: #selector(didTapSettings))
+            navigationItem.leftBarButtonItem?.tintColor = .black
             navigationItem.rightBarButtonItem = UIBarButtonItem(image: addIcon, style: .plain, target: self, action: #selector(didTapAdd))
+            navigationItem.rightBarButtonItem?.tintColor = .black
         }
         
+        navigationController?.navigationBar.prefersLargeTitles = true
+
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress(longPressGestureRecognizer:)))
         view.addGestureRecognizer(longPressRecognizer)
         
@@ -64,13 +69,6 @@ class TBHomeListViewController: UITableViewController {
         }
     }
     
-    private func createNewCategory() {
-        /**
-         1. Add a new table item at end - title can be 'New Category 👍' Random emoji?
-         2. Push a new Master Detail Item that is empty
-         */
-    }
-    
     // MARK: - Actions
     
     @objc private func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer) {
@@ -80,6 +78,7 @@ class TBHomeListViewController: UITableViewController {
             if let indexPath = tableView.indexPathForRow(at: touchPoint) {
                 // your code here, get the row for the indexPath or do whatever you want
                 print("LONG PRESS AT - \(indexPath)")
+                tableView(tableView, didSelectRowAt: indexPath)
                 navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(didTapCancel))
             }
         }
@@ -117,7 +116,7 @@ extension TBHomeListViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         onSelect?(indexPath.row)
     }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRows
     }

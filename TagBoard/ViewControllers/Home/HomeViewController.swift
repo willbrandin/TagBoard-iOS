@@ -58,7 +58,7 @@ class HomeViewController: UISplitViewController, UISplitViewControllerDelegate, 
                 return
             }
             
-            // TODO: - For now push, but this will be the copy action.
+            // TODO: - For now push, but this will be the copy action?
             self?.showTagViewControllerAsDetail(for: board)
         }
         
@@ -85,14 +85,22 @@ class HomeViewController: UISplitViewController, UISplitViewControllerDelegate, 
     }
     
     private func createTagViewController(for tagBoard: TagBoard) -> TagBoardViewController {
-        tagBoardViewController = TagBoardViewController()
-        tagBoardViewController.title = tagBoard.title
+        tagBoardViewController = TagBoardViewController(viewModel: TagBoardViewModel(tagBoard: tagBoard))
         return tagBoardViewController
     }
     
     private func showTagViewControllerAsDetail(for tagBoard: TagBoard) {
         let controller = createTagViewController(for: tagBoard)
         let navigation = UINavigationController(rootViewController: controller)
+        tagListViewController.navigationController?.popToRootViewController(animated: true)
         showDetailViewController(navigation, sender: nil)
+        toggleMasterView()
+    }
+}
+
+extension UISplitViewController {
+    func toggleMasterView() {
+        let barButtonItem = self.displayModeButtonItem
+        UIApplication.shared.sendAction(barButtonItem.action!, to: barButtonItem.target, from: nil, for: nil)
     }
 }

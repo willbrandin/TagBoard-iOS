@@ -33,6 +33,9 @@
 		D2B898B423725C5B00738821 /* TBHomeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B898B323725C5B00738821 /* TBHomeListViewController.swift */; };
 		D2B898B623725C7400738821 /* TagBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B898B523725C7400738821 /* TagBoardViewController.swift */; };
 		D2D60089237469020072B197 /* TagBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D60088237469020072B197 /* TagBoardViewModel.swift */; };
+		D2D600962374AB7E0072B197 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D600952374AB7E0072B197 /* UIView+Constraints.swift */; };
+		D2D600992374AD9A0072B197 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D600982374AD9A0072B197 /* Style.swift */; };
+		D2D6009B2374AE710072B197 /* UIColor+Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D6009A2374AE710072B197 /* UIColor+Palette.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +104,9 @@
 		D2B898B323725C5B00738821 /* TBHomeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBHomeListViewController.swift; sourceTree = "<group>"; };
 		D2B898B523725C7400738821 /* TagBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBoardViewController.swift; sourceTree = "<group>"; };
 		D2D60088237469020072B197 /* TagBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBoardViewModel.swift; sourceTree = "<group>"; };
+		D2D600952374AB7E0072B197 /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
+		D2D600982374AD9A0072B197 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		D2D6009A2374AE710072B197 /* UIColor+Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Palette.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +190,7 @@
 		D2B8985C23711EF400738821 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				D2D600972374AD920072B197 /* Style */,
 				D2B89873237122FB00738821 /* Utility */,
 				D2B8985D23711EFC00738821 /* Extensions */,
 			);
@@ -194,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				D2B8985A23711EEF00738821 /* UIViewController+LoadingView.swift */,
+				D2D600952374AB7E0072B197 /* UIView+Constraints.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -209,9 +217,9 @@
 		D2B8986123711F2300738821 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				D2D60084237468F00072B197 /* TagBoard */,
-				D20A6EE923736B0E00A04436 /* TagBoardList */,
 				D22EF19123736732004A8E35 /* Home */,
+				D20A6EE923736B0E00A04436 /* TagBoardList */,
+				D2D60084237468F00072B197 /* TagBoard */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -276,6 +284,15 @@
 				D2D60088237469020072B197 /* TagBoardViewModel.swift */,
 			);
 			path = TagBoard;
+			sourceTree = "<group>";
+		};
+		D2D600972374AD920072B197 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				D2D6009A2374AE710072B197 /* UIColor+Palette.swift */,
+				D2D600982374AD9A0072B197 /* Style.swift */,
+			);
+			path = Style;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -386,18 +403,21 @@
 				D2B8983E2370DE6600738821 /* HomeViewController.swift in Sources */,
 				D2B898B02372580100738821 /* User.swift in Sources */,
 				D2B8985423711E9900738821 /* FlowEvent.swift in Sources */,
+				D2D600992374AD9A0072B197 /* Style.swift in Sources */,
 				D2B898752371230C00738821 /* UserDefaultsManager.swift in Sources */,
 				D2B8985623711E9900738821 /* FlowCoordinator.swift in Sources */,
 				D2B8986023711F1B00738821 /* ApplicationCoordinator.swift in Sources */,
 				D2D60089237469020072B197 /* TagBoardViewModel.swift in Sources */,
 				D2B8985B23711EEF00738821 /* UIViewController+LoadingView.swift in Sources */,
 				D2B8985723711E9900738821 /* CoordinatorsTracker.swift in Sources */,
+				D2D6009B2374AE710072B197 /* UIColor+Palette.swift in Sources */,
 				D2B8983A2370DE6600738821 /* AppDelegate.swift in Sources */,
 				D2B898B623725C7400738821 /* TagBoardViewController.swift in Sources */,
 				D2B898802371259900738821 /* BundleUtil.swift in Sources */,
 				D20A6EEE23736B1E00A04436 /* TBHomeListViewModel.swift in Sources */,
 				D2B898B2237258BF00738821 /* TagBoard.swift in Sources */,
 				D2B89878237123F200738821 /* TagBoardApi.swift in Sources */,
+				D2D600962374AB7E0072B197 /* UIView+Constraints.swift in Sources */,
 				D2B8985523711E9900738821 /* NavigationControllerCoordinatorsTracker.swift in Sources */,
 				D2B8987E2371256000738821 /* InitialConfiguration.swift in Sources */,
 				D2B898B423725C5B00738821 /* TBHomeListViewController.swift in Sources */,

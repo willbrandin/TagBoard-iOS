@@ -21,10 +21,23 @@ class TagBoardViewModel {
         }
     }
     
-    var title: String = "" {
+    var title: String {
         didSet {
             onUpdateTitle?(title)
         }
+    }
+    
+    var saveButtonTitle: String {
+        return tagBoard.id != nil ? "Update" : "Save"
+    }
+    
+    private var tagBoard: TagBoard
+    
+    // MARK: - Initializer
+    
+    init(tagBoard: TagBoard) {
+        self.tagBoard = tagBoard
+        self.title = tagBoard.title
     }
     
     // MARK: - Methods
