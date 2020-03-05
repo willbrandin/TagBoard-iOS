@@ -43,11 +43,12 @@ extension LoadingView where Self: UIViewController {
     
     func indicatorView(window: UIWindow) -> UIView {
         
-        let indicatorView = UIActivityIndicatorView(style: .whiteLarge)
+        let indicatorView = UIActivityIndicatorView(style: .large)
         indicatorView.startAnimating()
+        indicatorView.color = .white
         
         let activityContainerView = UIView(frame: CGRect(x: 0, y: 0, width: 75.0, height: 75.0))
-        activityContainerView.backgroundColor = UIColor.black.withAlphaComponent(0.7)
+        activityContainerView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         activityContainerView.layer.cornerRadius = 4.0
         
         activityContainerView.addSubview(indicatorView)

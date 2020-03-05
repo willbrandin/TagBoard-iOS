@@ -9,7 +9,6 @@
 import UIKit
 import AuthenticationServices
 
-@available(iOS 13.0, *)
 class LandingViewController: UIViewController, LoadingView {
     
     // MARK: - Closures
@@ -86,20 +85,19 @@ class LandingViewController: UIViewController, LoadingView {
     // MARK: - Actions
     
     @objc private func buttonTapped() {
-//        #if DEBUG
-//        onComplete?()
-//        #else
+        #if DEBUG
+        onComplete?()
+        #else
         let request = ASAuthorizationAppleIDProvider().createRequest()
         request.requestedScopes = viewModel.authorizationScopes
 
         let controller = ASAuthorizationController(authorizationRequests: [request])
         controller.delegate = self
         controller.performRequests()
-//        #endif
+        #endif
     }
 }
 
-@available(iOS 13.0, *)
 extension LandingViewController: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         

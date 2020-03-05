@@ -47,12 +47,14 @@ class TagBoardViewController: UIViewController {
         setupTitleTextField()
         setupTagsTextView()
         subscribeToViewModel()
+        
+        navigationItem.largeTitleDisplayMode = .never
     }
     
     // MARK: - Private Methods
     
     private func subscribeToViewModel() {
-        viewModel.onDidUpdateTags = { [weak self] tags in }
+        viewModel.onDidUpdateTags = { tags in }
         viewModel.onUpdateTitle = { [weak self] title in
             self?.titleTextField.text = title
         }

@@ -25,8 +25,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setupWindow() {
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = createLandingViewController()
+        window?.rootViewController = createHomeViewController()
         window?.makeKeyAndVisible()
+        
+        let navBarAppearance = UINavigationBar.appearance()
+        navBarAppearance.barTintColor = .background
+        navBarAppearance.isTranslucent = true
+        navBarAppearance.setBackgroundImage(UIImage(), for: .default)
+        navBarAppearance.shadowImage = UIImage()
     }
     
     func createHomeViewController() -> UIViewController {
@@ -35,16 +41,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func createLandingViewController() -> UIViewController {
-        if #available(iOS 13.0, *) {
-            let landing = LandingViewController()
-            
-            landing.onComplete = { [weak self] in
-                self?.window?.rootViewController = self?.createHomeViewController()
-            }
-            
-            return landing
+        let landing = LandingViewController()
+        
+        landing.onComplete = { [weak self] in
+            self?.window?.rootViewController = self?.createHomeViewController()
         }
         
-        return UIViewController()
+        return landing
     }
 }
