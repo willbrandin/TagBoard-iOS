@@ -8,14 +8,13 @@
 
 import UIKit
 
-class TBHomeListViewController: UITableViewController {
+class TBHomeListViewController: UITableViewController, LoadingView {
     
     // MARK: - Properties
 
-    var onSelect: ((Int) -> Void)?
+    var onEdit: ((TagBoard) -> Void)?
     var onTapAdd: (() -> Void)?
     var onTapSettings: (() -> Void)?
-    var onDelete: ((Int) -> Void)?
     
     private var viewModel = TBHomeListViewModel()
         
@@ -34,31 +33,21 @@ class TBHomeListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Tags"
+        title = "Tag"
         view.backgroundColor = .background
         
-        if #available(iOS 13.0, *) {
-            let settingsIcon = UIImage(systemName: "gear")
-            let addIcon = UIImage(systemName: "plus")
-            
-            navigationItem.leftBarButtonItem = UIBarButtonItem(image: settingsIcon, style: .plain, target: self, action: #selector(didTapSettings))
-            navigationItem.leftBarButtonItem?.tintColor = .black
-            navigationItem.rightBarButtonItem = UIBarButtonItem(image: addIcon, style: .plain, target: self, action: #selector(didTapAdd))
-            navigationItem.rightBarButtonItem?.tintColor = .black
-        }
+        let settingsIcon = UIImage(systemName: "gear")?.withTintColor(.primary)
+        let addIcon = UIImage(systemName: "plus")?.withTintColor(.primary)
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: settingsIcon, style: .plain, target: self, action: #selector(didTapSettings))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: addIcon, style: .plain, target: self, action: #selector(didTapAdd))
         
         navigationController?.navigationBar.prefersLargeTitles = true
 
-        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress(longPressGestureRecognizer:)))
-        view.addGestureRecognizer(longPressRecognizer)
+        tableView.register(TagListItemCell.self)
+        tableView.allowsMultipleSelection = true
         
         subscribeToViewModel()
-    }
-    
-    // MARK: - Methods
-    
-    func setDataSource(_ tagBoards: [TagBoard]) {
-        viewModel.injectDataSource(tagBoards)
     }
     
     // MARK: - Private Methods
@@ -67,29 +56,53 @@ class TBHomeListViewController: UITableViewController {
         viewModel.onDataSourceUpdated = { [weak self] in
             self?.tableView.reloadData()
         }
+        
+        viewModel.onTapDisclosure = { [weak self] tagBoard in
+            self?.showTagBoardModalSheet(for: tagBoard)
+        }
+        
+        viewModel.onIsLoading = { [weak self] isLoading in
+            DispatchQueue.main.async {
+                if isLoading {
+                    self?.showLoadingView()
+                } else {
+                    self?.hideLoadingView()
+                }
+            }
+        }
+        
+        viewModel.requestList()
+    }
+    
+    private func showTagBoardModalSheet(for tagboard: TagBoard) {
+        let editAction: () -> Void = { [weak self] in
+            print("EDIT")
+            self?.onEdit?(tagboard)
+        }
+        
+        let deleteAction = {
+            self.viewModel.delete(tagboard)
+        }
+        
+        let cancelAction = {
+            print("CANCEL")
+        }
+        
+        let content = TagBoardModalSheetContent(name: tagboard.title, onTapEditAction: editAction, onTapDeleteAction: deleteAction, onTapCancelAction: cancelAction)
+        let modalView = TagBoardModalSheet(content: content)
+        view.showModalView(view: modalView)
     }
     
     // MARK: - Actions
     
-    @objc private func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer) {
-        if longPressGestureRecognizer.state == .began {
-
-            let touchPoint = longPressGestureRecognizer.location(in: tableView)
-            if let indexPath = tableView.indexPathForRow(at: touchPoint) {
-                // your code here, get the row for the indexPath or do whatever you want
-                print("LONG PRESS AT - \(indexPath)")
-                tableView(tableView, didSelectRowAt: indexPath)
-                navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(didTapCancel))
-            }
-        }
-    }
-    
     @objc private func didTapSettings() {
         print("SETTINGS")
         onTapSettings?()
+        viewModel.requestList()
     }
     
     @objc private func didTapAdd() {
+        print("ADD TAG")
         onTapAdd?()
     }
     
@@ -113,10 +126,6 @@ extension TBHomeListViewController {
         return viewModel.numberOfSections
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        onSelect?(indexPath.row)
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRows
     }
@@ -135,15 +144,5 @@ extension TBHomeListViewController {
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return nil
-    }
-    
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            onDelete?(indexPath.row)
-        }
     }
 }

@@ -11,8 +11,23 @@ import UIKit
 struct Style {
     
     struct Font {
-        static let h1 = UIFont.systemFont(ofSize: 24, weight: .bold)
-        static let body = UIFont.systemFont(ofSize: 16)
+        static var title: UIFont {
+            let font = UIFont.systemFont(ofSize: 24, weight: .bold)
+            let fontMetrics = UIFontMetrics(forTextStyle: .title1)
+            return fontMetrics.scaledFont(for: font)
+        }
+        
+        static var headline: UIFont {
+            let font = UIFont.systemFont(ofSize: 16, weight: .bold)
+            let fontMetrics = UIFontMetrics(forTextStyle: .headline)
+            return fontMetrics.scaledFont(for: font)
+        }
+        
+        static var body: UIFont {
+            let font = UIFont.systemFont(ofSize: 16)
+            let fontMetrics = UIFontMetrics(forTextStyle: .body)
+            return fontMetrics.scaledFont(for: font)
+        }
     }
     
     struct Layout {
@@ -23,7 +38,7 @@ struct Style {
         /// 8
         static let innerSpacing: CGFloat = 8
         /// 48
-        static let buttonHeight: CGFloat = 48
+        static let buttonHeight: CGFloat = 64
         /// 336
         static let maxButtonWidth: CGFloat = 336
     }

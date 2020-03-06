@@ -20,7 +20,7 @@ class HomeViewController: UISplitViewController, UISplitViewControllerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         let tagListViewController = createHomeListViewController()
         let master = UINavigationController(rootViewController: tagListViewController)
         viewControllers = [master]
@@ -53,13 +53,8 @@ class HomeViewController: UISplitViewController, UISplitViewControllerDelegate, 
     private func createHomeListViewController() -> TBHomeListViewController {
         tagListViewController = TBHomeListViewController()
         
-        tagListViewController.onSelect = { [weak self] index in
-            guard let board = self?.viewModel.tagBaord(for: index) else {
-                return
-            }
-            
-            // TODO: - For now push, but this will be the copy action?
-            self?.showTagViewControllerAsDetail(for: board)
+        tagListViewController.onEdit = { [weak self] tagBoard in
+            self?.showTagViewControllerAsDetail(for: tagBoard)
         }
         
         tagListViewController.onDelete = { [weak self] index in
@@ -92,9 +87,7 @@ class HomeViewController: UISplitViewController, UISplitViewControllerDelegate, 
     private func showTagViewControllerAsDetail(for tagBoard: TagBoard) {
         let controller = createTagViewController(for: tagBoard)
         let navigation = UINavigationController(rootViewController: controller)
-        tagListViewController.navigationController?.popToRootViewController(animated: true)
-        showDetailViewController(navigation, sender: nil)
-        toggleMasterView()
+        tagListViewController.navigationController?.present(navigation, animated: true, completion: nil)
     }
 }
 

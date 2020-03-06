@@ -49,14 +49,14 @@ class LandingViewController: UIViewController, LoadingView {
         button.widthAnchor.constraint(greaterThanOrEqualToConstant: Style.Layout.maxButtonWidth).isActive = true
         button.heightAnchor.constraint(equalToConstant: Style.Layout.buttonHeight).isActive = true
         
-        button.cornerRadius = 4
+        button.cornerRadius = 8
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         
         view.addSubview(titleLabel)
         titleLabel.pinAboveView(view: button, constant: 48)
         titleLabel.pinToLeadingAndTrailingMargins()
         
-        titleLabel.font = Style.Font.h1
+        titleLabel.font = Style.Font.title
         titleLabel.textColor = .white
         titleLabel.text = viewModel.title
         titleLabel.numberOfLines = 0

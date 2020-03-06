@@ -35,7 +35,7 @@ class TagBoardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         view.backgroundColor = .background
         view.setMargins(top: Style.Layout.margin,
                         leading: Style.Layout.margin,
@@ -65,7 +65,7 @@ class TagBoardViewController: UIViewController {
         titleTextField.pinToLeadingAndTrailingMargins()
         titleTextField.pinToTopMargin()
         
-        titleTextField.font = Style.Font.h1
+        titleTextField.font = Style.Font.title
         titleTextField.text = viewModel.title
     }
     
@@ -103,3 +103,4 @@ extension TagBoardViewController: UITextViewDelegate {
         }
     }
 }
+

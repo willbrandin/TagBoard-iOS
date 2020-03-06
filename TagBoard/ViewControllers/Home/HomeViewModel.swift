@@ -31,7 +31,8 @@ class HomeViewModel {
         print("GETTING DATA")
         onIsLoading?(true)
         var list = [TagBoard]()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.onIsLoading?(false)
             for i in 0..<5 {
                 let board = TagBoard(id: "\(i)", title: "TAG - \(i)", tags: ["Hello", "Hie"], createdDate: "2019-07-07", lastUpdatedDate: nil)

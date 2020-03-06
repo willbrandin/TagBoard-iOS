@@ -13,5 +13,7 @@ extension UIColor {
     static let background: UIColor = UIColor(named: "PrimaryBackground")!
     static let secondaryBackground: UIColor = UIColor(named: "SecondaryBackground")!
     static let placeholder: UIColor = UIColor(named: "Placeholder")!
-    static let primaryText: UIColor = UIColor.black
+    static let primaryText: UIColor = UIColor(named: "textPrimary")!
+    static let secondaryText: UIColor = UIColor(named: "textSecondary")!
+    static let error: UIColor = UIColor(named: "error")!
 }

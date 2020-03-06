@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct TagBoard: Codable {
+struct TagBoard: Codable, Equatable {
     let id: String?
     let title: String
     let tags: [String]

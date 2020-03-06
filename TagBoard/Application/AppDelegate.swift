@@ -12,7 +12,8 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    
+    private var applicationCoordinator: ApplicationCoordinator?
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         configureNetworkLayer()
@@ -24,29 +25,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Configuration
     
     func setupWindow() {
+        let standard = UINavigationBarAppearance()
+        standard.configureWithTransparentBackground()
+        standard.backgroundColor = .background
+        standard.titleTextAttributes = [.foregroundColor: UIColor.primaryText]
+        
+        UINavigationBar.appearance().standardAppearance = standard
+        UINavigationBar.appearance().scrollEdgeAppearance = standard
+        
+        applicationCoordinator = ApplicationCoordinator()
+        applicationCoordinator?.start(with: .push, animated: false)
+        
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = createHomeViewController()
+        window?.rootViewController = applicationCoordinator?.navigationController
         window?.makeKeyAndVisible()
-        
-        let navBarAppearance = UINavigationBar.appearance()
-        navBarAppearance.barTintColor = .background
-        navBarAppearance.isTranslucent = true
-        navBarAppearance.setBackgroundImage(UIImage(), for: .default)
-        navBarAppearance.shadowImage = UIImage()
-    }
-    
-    func createHomeViewController() -> UIViewController {
-        let home = HomeViewController()
-        return home
-    }
-    
-    func createLandingViewController() -> UIViewController {
-        let landing = LandingViewController()
-        
-        landing.onComplete = { [weak self] in
-            self?.window?.rootViewController = self?.createHomeViewController()
-        }
-        
-        return landing
     }
 }
