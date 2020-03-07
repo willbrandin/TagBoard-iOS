@@ -12,8 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    private var applicationCoordinator: ApplicationCoordinator?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         configureNetworkLayer()
@@ -25,6 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Configuration
     
     func setupWindow() {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = createLandingViewController()
+        window?.makeKeyAndVisible()
+        
         let standard = UINavigationBarAppearance()
         standard.configureWithTransparentBackground()
         standard.backgroundColor = .background
@@ -32,12 +35,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UINavigationBar.appearance().standardAppearance = standard
         UINavigationBar.appearance().scrollEdgeAppearance = standard
+    }
+    
+    func createHomeViewController() -> UIViewController {
+        let home = HomeViewController()
+        return home
+    }
+    
+    func createLandingViewController() -> UIViewController {
+        let landing = LandingViewController()
         
-        applicationCoordinator = ApplicationCoordinator()
-        applicationCoordinator?.start(with: .push, animated: false)
+        landing.onComplete = { [weak self] in
+            self?.window?.rootViewController = self?.createHomeViewController()
+        }
         
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = applicationCoordinator?.navigationController
-        window?.makeKeyAndVisible()
+        return landing
     }
 }

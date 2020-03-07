@@ -12,7 +12,6 @@ class HomeViewController: UISplitViewController, UISplitViewControllerDelegate, 
     
     // MARK: - Properties
     
-    private var viewModel = HomeViewModel()
     private var tagListViewController: TBHomeListViewController!
     private var tagBoardViewController: TagBoardViewController!
     
@@ -24,30 +23,8 @@ class HomeViewController: UISplitViewController, UISplitViewControllerDelegate, 
         let tagListViewController = createHomeListViewController()
         let master = UINavigationController(rootViewController: tagListViewController)
         viewControllers = [master]
-        
-        subscribeToViewModel()
     }
-    
-    // MARK: - Private Methods
-    
-    private func subscribeToViewModel() {
-        viewModel.onDataSourceChanged = { tagBoards in
-            self.tagListViewController.setDataSource(tagBoards)
-        }
-        
-        viewModel.onIsLoading = { [weak self] isLoading in
-            DispatchQueue.main.async {
-                if isLoading {
-                    self?.showLoadingView()
-                } else {
-                    self?.hideLoadingView()
-                }
-            }
-        }
-        
-        viewModel.requestList()
-    }
-    
+
     // MARK: - Child View Controllers
     
     private func createHomeListViewController() -> TBHomeListViewController {
@@ -57,23 +34,8 @@ class HomeViewController: UISplitViewController, UISplitViewControllerDelegate, 
             self?.showTagViewControllerAsDetail(for: tagBoard)
         }
         
-        tagListViewController.onDelete = { [weak self] index in
-            self?.viewModel.delete(at: index)
-            
-            // Only the master view is visible
-            if self?.viewControllers.count ?? 1 > 1 {
-                self?.viewControllers.removeLast()
-            }
-        }
-        
         tagListViewController.onTapSettings = { [weak self] in
-            self?.viewModel.requestList()
-        }
-        
-        tagListViewController.onTapAdd = { [weak self] in
-            let newBoard = TagBoard(id: nil, title: "New Tag", tags: [], createdDate: nil, lastUpdatedDate: nil)
-            self?.viewModel.addNew(newBoard)
-            self?.showTagViewControllerAsDetail(for: newBoard)
+            self?.presentSettings()
         }
         
         return tagListViewController
@@ -87,7 +49,13 @@ class HomeViewController: UISplitViewController, UISplitViewControllerDelegate, 
     private func showTagViewControllerAsDetail(for tagBoard: TagBoard) {
         let controller = createTagViewController(for: tagBoard)
         let navigation = UINavigationController(rootViewController: controller)
-        tagListViewController.navigationController?.present(navigation, animated: true, completion: nil)
+        tagListViewController.navigationController?.popToRootViewController(animated: true)
+        showDetailViewController(navigation, sender: nil)
+        toggleMasterView()
+    }
+    
+    private func presentSettings() {
+        
     }
 }
 

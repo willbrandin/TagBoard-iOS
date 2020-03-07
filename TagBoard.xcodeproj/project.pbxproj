@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		D20A6EEE23736B1E00A04436 /* TBHomeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20A6EED23736B1E00A04436 /* TBHomeListViewModel.swift */; };
+		D219C8CB241400EA00CEB903 /* ModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D219C8C8241400EA00CEB903 /* ModalPresenter.swift */; };
+		D219C8CC241400EA00CEB903 /* ModalPresenterStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D219C8C9241400EA00CEB903 /* ModalPresenterStyle.swift */; };
+		D219C8CD241400EA00CEB903 /* ModalPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D219C8CA241400EA00CEB903 /* ModalPresentable.swift */; };
+		D219C8CF2414014200CEB903 /* CellLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D219C8CE2414014200CEB903 /* CellLoadableView.swift */; };
+		D219C8D4241401B900CEB903 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D219C8D2241401B900CEB903 /* HomeViewController.swift */; };
 		D2B8983A2370DE6600738821 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B898392370DE6600738821 /* AppDelegate.swift */; };
 		D2B898432370DE6900738821 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B898422370DE6900738821 /* Assets.xcassets */; };
 		D2B898462370DE6900738821 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2B898442370DE6900738821 /* LaunchScreen.storyboard */; };
@@ -37,10 +42,6 @@
 		D2F21F39241196000039B6C8 /* ListView+CellLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F21F38241196000039B6C8 /* ListView+CellLoadableView.swift */; };
 		D2F21F3B2411963F0039B6C8 /* TagListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F21F3A2411963F0039B6C8 /* TagListItemCell.swift */; };
 		D2F21F3E2411CEA60039B6C8 /* ModalPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F21F3D2411CEA60039B6C8 /* ModalPresenterDelegate.swift */; };
-		D2F21F402411CEB50039B6C8 /* CellLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F21F3F2411CEB50039B6C8 /* CellLoadableView.swift */; };
-		D2F21F452411CEFA0039B6C8 /* ModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F21F422411CEFA0039B6C8 /* ModalPresenter.swift */; };
-		D2F21F462411CEFA0039B6C8 /* ModalPresenterStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F21F432411CEFA0039B6C8 /* ModalPresenterStyle.swift */; };
-		D2F21F492411CF290039B6C8 /* ModalPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F21F482411CF290039B6C8 /* ModalPresentable.swift */; };
 		D2F21F4C2411CF7A0039B6C8 /* TagBoardModalSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F21F4B2411CF7A0039B6C8 /* TagBoardModalSheet.swift */; };
 		D2F21F4E2411D2590039B6C8 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F21F4D2411D2590039B6C8 /* DividerView.swift */; };
 		D2F21F502411D60B0039B6C8 /* UIView+ShowModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F21F4F2411D60B0039B6C8 /* UIView+ShowModalView.swift */; };
@@ -90,6 +91,11 @@
 
 /* Begin PBXFileReference section */
 		D20A6EED23736B1E00A04436 /* TBHomeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBHomeListViewModel.swift; sourceTree = "<group>"; };
+		D219C8C8241400EA00CEB903 /* ModalPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalPresenter.swift; sourceTree = "<group>"; };
+		D219C8C9241400EA00CEB903 /* ModalPresenterStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalPresenterStyle.swift; sourceTree = "<group>"; };
+		D219C8CA241400EA00CEB903 /* ModalPresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalPresentable.swift; sourceTree = "<group>"; };
+		D219C8CE2414014200CEB903 /* CellLoadableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellLoadableView.swift; sourceTree = "<group>"; };
+		D219C8D2241401B900CEB903 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D2B898362370DE6600738821 /* TagBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TagBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B898392370DE6600738821 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2B898422370DE6900738821 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -120,10 +126,6 @@
 		D2F21F38241196000039B6C8 /* ListView+CellLoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListView+CellLoadableView.swift"; sourceTree = "<group>"; };
 		D2F21F3A2411963F0039B6C8 /* TagListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagListItemCell.swift; sourceTree = "<group>"; };
 		D2F21F3D2411CEA60039B6C8 /* ModalPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPresenterDelegate.swift; sourceTree = "<group>"; };
-		D2F21F3F2411CEB50039B6C8 /* CellLoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellLoadableView.swift; sourceTree = "<group>"; };
-		D2F21F422411CEFA0039B6C8 /* ModalPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalPresenter.swift; sourceTree = "<group>"; };
-		D2F21F432411CEFA0039B6C8 /* ModalPresenterStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalPresenterStyle.swift; sourceTree = "<group>"; };
-		D2F21F482411CF290039B6C8 /* ModalPresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalPresentable.swift; sourceTree = "<group>"; };
 		D2F21F4B2411CF7A0039B6C8 /* TagBoardModalSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBoardModalSheet.swift; sourceTree = "<group>"; };
 		D2F21F4D2411D2590039B6C8 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		D2F21F4F2411D60B0039B6C8 /* UIView+ShowModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ShowModalView.swift"; sourceTree = "<group>"; };
@@ -153,6 +155,24 @@
 				D20A6EED23736B1E00A04436 /* TBHomeListViewModel.swift */,
 			);
 			path = TagBoardList;
+			sourceTree = "<group>";
+		};
+		D219C8C7241400EA00CEB903 /* ModalPresenter */ = {
+			isa = PBXGroup;
+			children = (
+				D219C8C8241400EA00CEB903 /* ModalPresenter.swift */,
+				D219C8C9241400EA00CEB903 /* ModalPresenterStyle.swift */,
+				D219C8CA241400EA00CEB903 /* ModalPresentable.swift */,
+			);
+			path = ModalPresenter;
+			sourceTree = "<group>";
+		};
+		D219C8D0241401B900CEB903 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D219C8D2241401B900CEB903 /* HomeViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		D2B8982D2370DE6600738821 = {
@@ -239,6 +259,7 @@
 		D2B8986123711F2300738821 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D219C8D0241401B900CEB903 /* Home */,
 				D2F996C723A18C290075234E /* Landing */,
 				D20A6EE923736B0E00A04436 /* TagBoardList */,
 				D2D60084237468F00072B197 /* TagBoard */,
@@ -322,7 +343,6 @@
 			isa = PBXGroup;
 			children = (
 				D2F21F4A2411CF6B0039B6C8 /* Modals */,
-				D2F21F412411CEFA0039B6C8 /* ModalPresenter */,
 				D2F21F37241195D30039B6C8 /* Cells */,
 				D2F21F4D2411D2590039B6C8 /* DividerView.swift */,
 			);
@@ -340,25 +360,16 @@
 		D2F21F3C2411CE840039B6C8 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				D219C8CE2414014200CEB903 /* CellLoadableView.swift */,
 				D2F21F3D2411CEA60039B6C8 /* ModalPresenterDelegate.swift */,
-				D2F21F3F2411CEB50039B6C8 /* CellLoadableView.swift */,
 			);
 			path = Protocols;
-			sourceTree = "<group>";
-		};
-		D2F21F412411CEFA0039B6C8 /* ModalPresenter */ = {
-			isa = PBXGroup;
-			children = (
-				D2F21F482411CF290039B6C8 /* ModalPresentable.swift */,
-				D2F21F422411CEFA0039B6C8 /* ModalPresenter.swift */,
-				D2F21F432411CEFA0039B6C8 /* ModalPresenterStyle.swift */,
-			);
-			path = ModalPresenter;
 			sourceTree = "<group>";
 		};
 		D2F21F4A2411CF6B0039B6C8 /* Modals */ = {
 			isa = PBXGroup;
 			children = (
+				D219C8C7241400EA00CEB903 /* ModalPresenter */,
 				D2F21F4B2411CF7A0039B6C8 /* TagBoardModalSheet.swift */,
 			);
 			path = Modals;
@@ -475,25 +486,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2F21F402411CEB50039B6C8 /* CellLoadableView.swift in Sources */,
 				D2B8985923711E9900738821 /* Coordinator.swift in Sources */,
 				D2B8985823711E9900738821 /* NavigationFlowCoordinator.swift in Sources */,
 				D2F996D223A18F7D0075234E /* UIImage+Icons.swift in Sources */,
-				D2F21F492411CF290039B6C8 /* ModalPresentable.swift in Sources */,
 				D2F21F4C2411CF7A0039B6C8 /* TagBoardModalSheet.swift in Sources */,
+				D219C8CC241400EA00CEB903 /* ModalPresenterStyle.swift in Sources */,
 				D2F21F3B2411963F0039B6C8 /* TagListItemCell.swift in Sources */,
 				D2B8987C2371246D00738821 /* APIConstants.swift in Sources */,
 				D2B898B02372580100738821 /* User.swift in Sources */,
 				D2B8985423711E9900738821 /* FlowEvent.swift in Sources */,
 				D2D600992374AD9A0072B197 /* Style.swift in Sources */,
+				D219C8CD241400EA00CEB903 /* ModalPresentable.swift in Sources */,
 				D2B898752371230C00738821 /* UserDefaultsManager.swift in Sources */,
+				D219C8CF2414014200CEB903 /* CellLoadableView.swift in Sources */,
 				D2B8985623711E9900738821 /* FlowCoordinator.swift in Sources */,
 				D2B8986023711F1B00738821 /* ApplicationCoordinator.swift in Sources */,
 				D2D60089237469020072B197 /* TagBoardViewModel.swift in Sources */,
-				D2F21F452411CEFA0039B6C8 /* ModalPresenter.swift in Sources */,
+				D219C8CB241400EA00CEB903 /* ModalPresenter.swift in Sources */,
 				D2B8985B23711EEF00738821 /* UIViewController+LoadingView.swift in Sources */,
 				D2B8985723711E9900738821 /* CoordinatorsTracker.swift in Sources */,
 				D2D6009B2374AE710072B197 /* UIColor+Palette.swift in Sources */,
+				D219C8D4241401B900CEB903 /* HomeViewController.swift in Sources */,
 				D2B8983A2370DE6600738821 /* AppDelegate.swift in Sources */,
 				D2F21F3E2411CEA60039B6C8 /* ModalPresenterDelegate.swift in Sources */,
 				D2F996CE23A18C410075234E /* LandingViewModel.swift in Sources */,
@@ -509,7 +522,6 @@
 				D2B8987E2371256000738821 /* InitialConfiguration.swift in Sources */,
 				D2F996CC23A18C390075234E /* LandingViewController.swift in Sources */,
 				D2B898B423725C5B00738821 /* TBHomeListViewController.swift in Sources */,
-				D2F21F462411CEFA0039B6C8 /* ModalPresenterStyle.swift in Sources */,
 				D2F21F39241196000039B6C8 /* ListView+CellLoadableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

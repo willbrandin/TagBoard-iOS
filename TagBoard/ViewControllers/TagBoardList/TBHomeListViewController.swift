@@ -13,7 +13,6 @@ class TBHomeListViewController: UITableViewController, LoadingView {
     // MARK: - Properties
 
     var onEdit: ((TagBoard) -> Void)?
-    var onTapAdd: (() -> Void)?
     var onTapSettings: (() -> Void)?
     
     private var viewModel = TBHomeListViewModel()
@@ -102,8 +101,9 @@ class TBHomeListViewController: UITableViewController, LoadingView {
     }
     
     @objc private func didTapAdd() {
-        print("ADD TAG")
-        onTapAdd?()
+        let newBoard = TagBoard(id: nil, title: "New Tag", tags: [], createdDate: nil, lastUpdatedDate: nil)
+        viewModel.addNew(newBoard)
+        onEdit?(newBoard)
     }
     
     @objc private func didTapCancel() {

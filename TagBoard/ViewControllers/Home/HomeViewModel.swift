@@ -27,22 +27,6 @@ class HomeViewModel {
     
     // MARK: - Methods
     
-    func requestList() {
-        print("GETTING DATA")
-        onIsLoading?(true)
-        var list = [TagBoard]()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.onIsLoading?(false)
-            for i in 0..<5 {
-                let board = TagBoard(id: "\(i)", title: "TAG - \(i)", tags: ["Hello", "Hie"], createdDate: "2019-07-07", lastUpdatedDate: nil)
-                list.append(board)
-            }
-            
-            print("INJECTED")
-            self.tagBoards = list
-        }
-    }
     
     func addNew(_ board: TagBoard) {
         self.tagBoards.append(board)
