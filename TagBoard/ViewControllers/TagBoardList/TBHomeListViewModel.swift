@@ -69,4 +69,14 @@ class TBHomeListViewModel {
         cell.setCellContent(content)
         return cell
     }
+    
+    func didUpdate(_ tag: TagBoard) {
+        if let tagboard = tagBoards.first(where: { $0.id == tag.id }),
+            let index = tagBoards.firstIndex(of: tagboard) {
+            tagBoards[index] = tag
+            onDataSourceUpdated?()
+        } else {
+            tagBoards.append(tag)
+        }
+    }
 }

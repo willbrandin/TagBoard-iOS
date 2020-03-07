@@ -43,6 +43,12 @@ class HomeViewController: UISplitViewController, UISplitViewControllerDelegate, 
     
     private func createTagViewController(for tagBoard: TagBoard) -> TagBoardViewController {
         tagBoardViewController = TagBoardViewController(viewModel: TagBoardViewModel(tagBoard: tagBoard))
+        
+        tagBoardViewController.onSave = { [weak self] tagBoard in
+            self?.tagListViewController.didUpdate(tagBoard)
+            self?.tagListViewController.navigationController?.popToRootViewController(animated: true)
+        }
+        
         return tagBoardViewController
     }
     
@@ -55,7 +61,14 @@ class HomeViewController: UISplitViewController, UISplitViewControllerDelegate, 
     }
     
     private func presentSettings() {
+        let viewController = UIViewController()
+        viewController.title = "Settings"
+        viewController.view.backgroundColor = .background
+
+        let controller = UINavigationController(rootViewController: viewController)
+        viewController.navigationController?.navigationBar.prefersLargeTitles = true
         
+        tagListViewController.navigationController?.present(controller, animated: true, completion: nil)
     }
 }
 

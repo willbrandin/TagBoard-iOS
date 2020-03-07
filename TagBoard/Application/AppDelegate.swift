@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setupWindow() {
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = createLandingViewController()
+        window?.rootViewController = createHomeViewController()
         window?.makeKeyAndVisible()
         
         let standard = UINavigationBarAppearance()

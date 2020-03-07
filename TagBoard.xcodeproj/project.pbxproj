@@ -260,8 +260,8 @@
 			isa = PBXGroup;
 			children = (
 				D219C8D0241401B900CEB903 /* Home */,
-				D2F996C723A18C290075234E /* Landing */,
 				D20A6EE923736B0E00A04436 /* TagBoardList */,
+				D2F996C723A18C290075234E /* Landing */,
 				D2D60084237468F00072B197 /* TagBoard */,
 			);
 			path = ViewControllers;

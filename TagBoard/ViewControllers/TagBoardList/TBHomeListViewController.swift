@@ -92,6 +92,10 @@ class TBHomeListViewController: UITableViewController, LoadingView {
         view.showModalView(view: modalView)
     }
     
+    func didUpdate(_ tag: TagBoard) {
+        viewModel.didUpdate(tag)
+    }
+    
     // MARK: - Actions
     
     @objc private func didTapSettings() {
@@ -102,7 +106,6 @@ class TBHomeListViewController: UITableViewController, LoadingView {
     
     @objc private func didTapAdd() {
         let newBoard = TagBoard(id: nil, title: "New Tag", tags: [], createdDate: nil, lastUpdatedDate: nil)
-        viewModel.addNew(newBoard)
         onEdit?(newBoard)
     }
     

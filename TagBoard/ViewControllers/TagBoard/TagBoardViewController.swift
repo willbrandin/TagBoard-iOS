@@ -12,7 +12,7 @@ class TagBoardViewController: UIViewController {
     
     // MARK: - Properties
     
-    var onSave: (() -> Void)?
+    var onSave: ((TagBoard) -> Void)?
     
     private var viewModel: TagBoardViewModel
     
@@ -67,6 +67,7 @@ class TagBoardViewController: UIViewController {
         
         titleTextField.font = Style.Font.title
         titleTextField.text = viewModel.title
+        titleTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
     
     private func setupTagsTextView() {
@@ -84,7 +85,15 @@ class TagBoardViewController: UIViewController {
     // MARK: - Actions
     
     @objc private func didTapSave() {
-        onSave?()
+        onSave?(viewModel.save())
+    }
+    
+    @objc private func textFieldDidChange(_ textField: UITextField) {
+        guard let text = textField.text else {
+            return
+        }
+        
+        viewModel.update(text)
     }
 }
 

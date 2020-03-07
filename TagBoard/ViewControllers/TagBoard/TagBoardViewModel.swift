@@ -45,4 +45,9 @@ class TagBoardViewModel {
     func update(_ title: String) {
         self.title = title
     }
+    
+    func save() -> TagBoard {
+        let updated = TagBoard(id: tagBoard.id, title: title, tags: tags, createdDate: tagBoard.createdDate, lastUpdatedDate: tagBoard.lastUpdatedDate)
+        return updated
+    }
 }
