@@ -35,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UINavigationBar.appearance().standardAppearance = standard
         UINavigationBar.appearance().scrollEdgeAppearance = standard
+        UINavigationBar.appearance().tintColor = .primaryText
     }
     
     func createHomeViewController() -> UIViewController {

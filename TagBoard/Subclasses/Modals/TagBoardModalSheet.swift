@@ -52,7 +52,7 @@ class TagBoardModalSheet: ModalPresentable {
     
     // MARK: - Private Methods
     
-    private func setupView() {        
+    private func setupView() {
         addSubview(contentView)
         contentView.pinToSuperview()
         contentView.setMargins(top: 0, leading: Style.Layout.margin, bottom: 0, trailing: Style.Layout.margin)
@@ -62,7 +62,7 @@ class TagBoardModalSheet: ModalPresentable {
         mainButtonWrapper.pinToLeadingAndTrailingMargins()
         
         mainButtonWrapper.addSubview(titleLabel)
-        titleLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: Style.Layout.buttonHeight).isActive = true
+        titleLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: Style.Layout.cellHeight).isActive = true
         titleLabel.pinToLeadingAndTrailing()
         titleLabel.pinToTop()
         
@@ -72,7 +72,7 @@ class TagBoardModalSheet: ModalPresentable {
         titleDivider.pinBelowView(view: titleLabel)
         
         mainButtonWrapper.addSubview(editButton)
-        editButton.heightAnchor.constraint(greaterThanOrEqualToConstant: Style.Layout.buttonHeight).isActive = true
+        editButton.heightAnchor.constraint(greaterThanOrEqualToConstant: Style.Layout.cellHeight).isActive = true
         editButton.pinToLeadingAndTrailing()
         editButton.pinBelowView(view: titleDivider)
         
@@ -83,12 +83,12 @@ class TagBoardModalSheet: ModalPresentable {
 
         mainButtonWrapper.addSubview(deleteButton)
         deleteButton.pinBelowView(view: editDivider)
-        deleteButton.heightAnchor.constraint(greaterThanOrEqualToConstant: Style.Layout.buttonHeight).isActive = true
+        deleteButton.heightAnchor.constraint(greaterThanOrEqualToConstant: Style.Layout.cellHeight).isActive = true
         deleteButton.pinToLeadingAndTrailing()
         deleteButton.pinToBottom()
         
         contentView.addSubview(cancelButton)
-        cancelButton.heightAnchor.constraint(greaterThanOrEqualToConstant: Style.Layout.buttonHeight).isActive = true
+        cancelButton.heightAnchor.constraint(greaterThanOrEqualToConstant: Style.Layout.cellHeight).isActive = true
         cancelButton.pinBelowView(view: mainButtonWrapper, constant: Style.Layout.marginXL)
         cancelButton.pinToLeadingAndTrailingMargins()
         cancelButton.pinToBottom(constant: Style.Layout.margin)

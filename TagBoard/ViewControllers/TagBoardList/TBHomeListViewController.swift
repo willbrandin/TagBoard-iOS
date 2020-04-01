@@ -43,12 +43,8 @@ class TBHomeListViewController: UITableViewController, LoadingView {
         
         view.setMargins(top: Style.Layout.margin, leading: Style.Layout.margin, bottom: Style.Layout.margin, trailing: Style.Layout.margin)
         
-        let settingsIcon = UIImage(systemName: "gear")?.withTintColor(.primary)
-        let addIcon = UIImage(systemName: "plus")?.withTintColor(.primary)
-        
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: settingsIcon, style: .plain, target: self, action: #selector(didTapSettings))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: addIcon, style: .plain, target: self, action: #selector(didTapAdd))
-        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: .gear, style: .plain, target: self, action: #selector(didTapSettings))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: .plus, style: .plain, target: self, action: #selector(didTapAdd))
         navigationController?.navigationBar.prefersLargeTitles = true
 
         tableView.register(TagListItemCell.self)
@@ -158,7 +154,6 @@ class TBHomeListViewController: UITableViewController, LoadingView {
     @objc private func didTapSettings() {
         print("SETTINGS")
         onTapSettings?()
-        viewModel.requestList()
     }
     
     @objc private func didTapCopy() {

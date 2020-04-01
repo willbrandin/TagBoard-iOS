@@ -14,6 +14,13 @@
 		D210264B2434F7F1009FF553 /* ChipCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210264A2434F7F1009FF553 /* ChipCollectionViewCell.swift */; };
 		D210264D2434F8B2009FF553 /* ChipCollectionViewCell+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210264C2434F8B2009FF553 /* ChipCollectionViewCell+Style.swift */; };
 		D210265024351119009FF553 /* AlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210264F24351119009FF553 /* AlignedCollectionViewFlowLayout.swift */; };
+		D210265724352697009FF553 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210265624352697009FF553 /* SettingsViewController.swift */; };
+		D2102659243526A4009FF553 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2102658243526A4009FF553 /* SettingsViewModel.swift */; };
+		D210265C2435277B009FF553 /* LargeTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210265B2435277B009FF553 /* LargeTableViewHeader.swift */; };
+		D210265E24352859009FF553 /* SettingsViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210265D24352859009FF553 /* SettingsViewController+TableView.swift */; };
+		D210266024352CF4009FF553 /* CenteredSingleLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210265F24352CF4009FF553 /* CenteredSingleLineCell.swift */; };
+		D2102662243530AE009FF553 /* PrefixTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2102661243530AE009FF553 /* PrefixTableViewCell.swift */; };
+		D2102668243535C6009FF553 /* CloseBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2102667243535C6009FF553 /* CloseBarButton.swift */; };
 		D219C8CB241400EA00CEB903 /* ModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D219C8C8241400EA00CEB903 /* ModalPresenter.swift */; };
 		D219C8CC241400EA00CEB903 /* ModalPresenterStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D219C8C9241400EA00CEB903 /* ModalPresenterStyle.swift */; };
 		D219C8CD241400EA00CEB903 /* ModalPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D219C8CA241400EA00CEB903 /* ModalPresentable.swift */; };
@@ -103,6 +110,13 @@
 		D210264A2434F7F1009FF553 /* ChipCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipCollectionViewCell.swift; sourceTree = "<group>"; };
 		D210264C2434F8B2009FF553 /* ChipCollectionViewCell+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChipCollectionViewCell+Style.swift"; sourceTree = "<group>"; };
 		D210264F24351119009FF553 /* AlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		D210265624352697009FF553 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		D2102658243526A4009FF553 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		D210265B2435277B009FF553 /* LargeTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTableViewHeader.swift; sourceTree = "<group>"; };
+		D210265D24352859009FF553 /* SettingsViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+TableView.swift"; sourceTree = "<group>"; };
+		D210265F24352CF4009FF553 /* CenteredSingleLineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredSingleLineCell.swift; sourceTree = "<group>"; };
+		D2102661243530AE009FF553 /* PrefixTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefixTableViewCell.swift; sourceTree = "<group>"; };
+		D2102667243535C6009FF553 /* CloseBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseBarButton.swift; sourceTree = "<group>"; };
 		D219C8C8241400EA00CEB903 /* ModalPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalPresenter.swift; sourceTree = "<group>"; };
 		D219C8C9241400EA00CEB903 /* ModalPresenterStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalPresenterStyle.swift; sourceTree = "<group>"; };
 		D219C8CA241400EA00CEB903 /* ModalPresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalPresentable.swift; sourceTree = "<group>"; };
@@ -195,6 +209,34 @@
 				D210264F24351119009FF553 /* AlignedCollectionViewFlowLayout.swift */,
 			);
 			path = AlignedCollectionLayout;
+			sourceTree = "<group>";
+		};
+		D210265224352689009FF553 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D210265A2435276F009FF553 /* Cell */,
+				D210265624352697009FF553 /* SettingsViewController.swift */,
+				D2102658243526A4009FF553 /* SettingsViewModel.swift */,
+				D210265D24352859009FF553 /* SettingsViewController+TableView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		D210265A2435276F009FF553 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D210265B2435277B009FF553 /* LargeTableViewHeader.swift */,
+				D2102661243530AE009FF553 /* PrefixTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		D2102666243535BC009FF553 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				D2102667243535C6009FF553 /* CloseBarButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		D219C8C7241400EA00CEB903 /* ModalPresenter */ = {
@@ -299,6 +341,7 @@
 		D2B8986123711F2300738821 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D210265224352689009FF553 /* Settings */,
 				D210263F2434E7A9009FF553 /* TagRefine */,
 				D219C8D0241401B900CEB903 /* Home */,
 				D20A6EE923736B0E00A04436 /* TagBoardList */,
@@ -383,6 +426,7 @@
 		D2F21F36241195C50039B6C8 /* Subclasses */ = {
 			isa = PBXGroup;
 			children = (
+				D2102666243535BC009FF553 /* Buttons */,
 				D210264E24351101009FF553 /* AlignedCollectionLayout */,
 				D2F21F4A2411CF6B0039B6C8 /* Modals */,
 				D2F21F37241195D30039B6C8 /* Cells */,
@@ -395,6 +439,7 @@
 			isa = PBXGroup;
 			children = (
 				D2F21F3A2411963F0039B6C8 /* TagListItemCell.swift */,
+				D210265F24352CF4009FF553 /* CenteredSingleLineCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -530,6 +575,7 @@
 			files = (
 				D2B8985923711E9900738821 /* Coordinator.swift in Sources */,
 				D2B8985823711E9900738821 /* NavigationFlowCoordinator.swift in Sources */,
+				D2102668243535C6009FF553 /* CloseBarButton.swift in Sources */,
 				D2F996D223A18F7D0075234E /* UIImage+Icons.swift in Sources */,
 				D2F21F4C2411CF7A0039B6C8 /* TagBoardModalSheet.swift in Sources */,
 				D219C8CC241400EA00CEB903 /* ModalPresenterStyle.swift in Sources */,
@@ -539,11 +585,13 @@
 				D2B898B02372580100738821 /* User.swift in Sources */,
 				D2B8985423711E9900738821 /* FlowEvent.swift in Sources */,
 				D2D600992374AD9A0072B197 /* Style.swift in Sources */,
+				D210266024352CF4009FF553 /* CenteredSingleLineCell.swift in Sources */,
 				D219C8CD241400EA00CEB903 /* ModalPresentable.swift in Sources */,
 				D2B898752371230C00738821 /* UserDefaultsManager.swift in Sources */,
 				D219C8CF2414014200CEB903 /* CellLoadableView.swift in Sources */,
 				D2B8985623711E9900738821 /* FlowCoordinator.swift in Sources */,
 				D2B8986023711F1B00738821 /* ApplicationCoordinator.swift in Sources */,
+				D2102662243530AE009FF553 /* PrefixTableViewCell.swift in Sources */,
 				D2D60089237469020072B197 /* TagBoardViewModel.swift in Sources */,
 				D219C8CB241400EA00CEB903 /* ModalPresenter.swift in Sources */,
 				D2B8985B23711EEF00738821 /* UIViewController+LoadingView.swift in Sources */,
@@ -554,6 +602,7 @@
 				D210264B2434F7F1009FF553 /* ChipCollectionViewCell.swift in Sources */,
 				D2F21F3E2411CEA60039B6C8 /* ModalPresenterDelegate.swift in Sources */,
 				D2F996CE23A18C410075234E /* LandingViewModel.swift in Sources */,
+				D210265C2435277B009FF553 /* LargeTableViewHeader.swift in Sources */,
 				D21026442434E7BD009FF553 /* TagRefineViewController.swift in Sources */,
 				D2F21F502411D60B0039B6C8 /* UIView+ShowModalView.swift in Sources */,
 				D2B898B623725C7400738821 /* TagBoardViewController.swift in Sources */,
@@ -563,6 +612,9 @@
 				D2B898B2237258BF00738821 /* TagBoard.swift in Sources */,
 				D2B89878237123F200738821 /* TagBoardApi.swift in Sources */,
 				D2F21F4E2411D2590039B6C8 /* DividerView.swift in Sources */,
+				D2102659243526A4009FF553 /* SettingsViewModel.swift in Sources */,
+				D210265E24352859009FF553 /* SettingsViewController+TableView.swift in Sources */,
+				D210265724352697009FF553 /* SettingsViewController.swift in Sources */,
 				D2D600962374AB7E0072B197 /* UIView+Constraints.swift in Sources */,
 				D210265024351119009FF553 /* AlignedCollectionViewFlowLayout.swift in Sources */,
 				D2B8985523711E9900738821 /* NavigationControllerCoordinatorsTracker.swift in Sources */,

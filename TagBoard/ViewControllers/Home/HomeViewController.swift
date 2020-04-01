@@ -65,12 +65,8 @@ class HomeViewController: UISplitViewController, UISplitViewControllerDelegate, 
     }
     
     private func presentSettings() {
-        let viewController = UIViewController()
-        viewController.title = "Settings"
-        viewController.view.backgroundColor = .background
-
+        let viewController = SettingsViewController()
         let controller = UINavigationController(rootViewController: viewController)
-        viewController.navigationController?.navigationBar.prefersLargeTitles = true
         
         tagListViewController.navigationController?.present(controller, animated: true, completion: nil)
     }

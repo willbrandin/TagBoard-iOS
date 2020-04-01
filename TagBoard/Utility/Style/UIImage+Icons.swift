@@ -25,4 +25,19 @@ extension UIImage {
         let config = UIImage.SymbolConfiguration(textStyle: .headline)
         return UIImage(systemName: "ellipsis.circle", withConfiguration: config)!
     }
+    
+    static var close: UIImage {
+        let config = UIImage.SymbolConfiguration(textStyle: .body)
+        return UIImage(systemName: "xmark", withConfiguration: config)!
+    }
+    
+    static var gear: UIImage {
+        let config = UIImage.SymbolConfiguration(textStyle: .body)
+        return UIImage(systemName: "gear", withConfiguration: config)!
+    }
+    
+    static var plus: UIImage {
+        let config = UIImage.SymbolConfiguration(textStyle: .body)
+        return UIImage(systemName: "plus", withConfiguration: config)!
+    }
 }

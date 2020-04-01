@@ -50,7 +50,7 @@ class TBHomeListViewModel {
             self.onIsLoading?(false)
             for i in 0..<10 {
                 if (i % 2) == 0 {
-                    let board = TagBoard(id: "\(i)", title: "TAG - \(i)", tags: ["#Helasdfasdflo", "#Hisdafsdfasde", "#Hisdafsdfasde", "HASLDLASDFOASDF", "#Helasdfasdflo", "#Hisdafsdfasde", "#Hisdafsdfasde", "HASLDLASDFOASDF", "#Helasdfasdflo", "#Hisdafsdfasde", "#HELLO", "#Hisdafsdfasde", "HASLDLASDFOASDF", "#Helasdfasdflo", "#Hisdafsdfasde", "#Hisdafsdfasde", "HASLDLASDFOASDF"], createdDate: "2019-07-07", lastUpdatedDate: nil)
+                    let board = TagBoard(id: "\(i)", title: "TAG - \(i)", tags: ["#Helasdfasdflo", "#Hisdafsdfasde", "#Hisdafsdfasde", "#HASLDLASDFOASDF", "#Helasdfasdflo", "#Hisdafsdfasde", "#Hisdafsdfasde", "#HASLDLASDFOASDF", "#Helasdfasdflo", "#Hisdafsdfasde", "#HELLO", "#Hisdafsdfasde", "#HASLDLASDFOASDF", "#Helasdfasdflo", "#Hisdafsdfasde", "#Hisdafsdfasde", "#HASLDLASDFOASDF"], createdDate: "2019-07-07", lastUpdatedDate: nil)
                     list.append(board)
                 } else {
                     let board = TagBoard(id: "\(i)", title: "TAG - \(i)", tags: ["#Hasdlo", "#Hifasde", "#Hisdaf", "#HASLDLASDFOASDF"], createdDate: "2019-07-07", lastUpdatedDate: nil)

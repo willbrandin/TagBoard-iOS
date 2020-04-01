@@ -37,6 +37,10 @@ class TagRefineViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        print("DEINIT - \(String(describing: self))")
+    }
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -45,7 +49,12 @@ class TagRefineViewController: UIViewController {
         title = viewModel.title
         view.backgroundColor = .background
         navigationController?.navigationBar.prefersLargeTitles = true
-        view.setMargins(top: Style.Layout.margin, leading: Style.Layout.margin, bottom: Style.Layout.marginXL, trailing: Style.Layout.margin)
+        addCloseButton(image: .close)
+        
+        view.setMargins(top: Style.Layout.margin,
+                        leading: Style.Layout.margin,
+                        bottom: Style.Layout.marginXL,
+                        trailing: Style.Layout.margin)
 
         setupCollectionView()
         setupCopyButton()
