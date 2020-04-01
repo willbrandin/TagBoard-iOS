@@ -8,11 +8,12 @@
 
 import Foundation
 
-struct UserDefaultManager {
+struct UserDefaultsManager {
     
     // MARK: - Keys
     
     private static let bearerTokenKey = "bearerTokenKey"
+    private static let isAddingPrefixKey = "isAddingPrefixKey"
     
     // MARK: - Stored Values
     
@@ -26,6 +27,15 @@ struct UserDefaultManager {
         }
         set {
             UserDefaults.standard.set(newValue, forKey: bearerTokenKey)
+        }
+    }
+    
+    static var isAddingPrefix: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: isAddingPrefixKey)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: isAddingPrefixKey)
         }
     }
 }

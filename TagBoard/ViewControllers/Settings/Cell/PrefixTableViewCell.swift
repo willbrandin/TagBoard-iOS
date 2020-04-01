@@ -34,6 +34,12 @@ class PrefixTableViewCell: UITableViewCell, CellLoadableView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Methods
+    
+    func setSwitch(isOn: Bool) {
+        switchControl.isOn = isOn
+    }
+    
     // MARK: - Private Methods
     
     private func setupView() {
@@ -45,11 +51,11 @@ class PrefixTableViewCell: UITableViewCell, CellLoadableView {
         contentView.addSubview(titleLabel)
         titleLabel.pinToTopMargin()
         titleLabel.pinToLeadingMargin()
-        titleLabel.text = titleText
         
         contentView.addSubview(switchControl)
         switchControl.alignVerticalCenterToView(view: titleLabel)
         switchControl.pinToTrailingMargin()
+        switchControl.heightAnchor.constraint(equalToConstant: 32).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: switchControl.leadingAnchor, constant: -Style.Layout.margin).isActive = true
         switchControl.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
 
@@ -57,7 +63,6 @@ class PrefixTableViewCell: UITableViewCell, CellLoadableView {
         prefixLabel.pinBelowView(view: titleLabel, constant: Style.Layout.innerSpacing)
         prefixLabel.pinToLeadingAndTrailingMargins()
         prefixLabel.pinToBottomMargin()
-        prefixLabel.text = prefixText
     }
     
     private func styleView() {
@@ -65,8 +70,10 @@ class PrefixTableViewCell: UITableViewCell, CellLoadableView {
         titleLabel.textColor = .primaryText
         titleLabel.numberOfLines = 0
         prefixLabel.numberOfLines = 0
-        
         switchControl.onTintColor = .primary
+        
+        titleLabel.text = titleText
+        prefixLabel.text = prefixText
     }
     
     // MARK: - Actions

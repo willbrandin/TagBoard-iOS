@@ -14,9 +14,7 @@ class TagRefineViewModel {
     
     var onUpdateCount: ((Int) -> Void)?
     
-    var title: String {
-        return "\(tagCount) Hashtags"
-    }
+    let title: String = "Refine"
     
     private(set) lazy var tagCount: Int = tagBoards.compactMap({ $0.tags.count }).reduce(0, +)
     private(set) var tagBoards: [TagBoard]

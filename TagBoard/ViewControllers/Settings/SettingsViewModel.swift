@@ -52,7 +52,7 @@ class SettingsViewModel {
         }
         
         switch section {
-        case .share : return 2
+        case .share: return 2
         default: return 1
         }
     }
@@ -66,12 +66,14 @@ class SettingsViewModel {
         case .prefix:
             let cell: PrefixTableViewCell = tableView.deqeueReusableCell(for: indexPath)
             cell.onSwitchChanged = self.handleSwitch
+            cell.setSwitch(isOn: UserDefaultsManager.isAddingPrefix)
             return cell
             
         case .share:
             let shareOption = ShareOption.allCases[indexPath.row]
             let cell: CenteredSingleLineCell = tableView.deqeueReusableCell(for: indexPath)
             cell.setCell(title: shareOption.title, style: .standardStyle)
+            cell.separatorInset = .zero
             return cell
             
         case .logout:
@@ -110,7 +112,8 @@ class SettingsViewModel {
     // MARK: - Private Methods
     
     private func handleSwitch(_ isOn: Bool) {
-        print("Did Change to \(isOn ? "On" : "Off")")
+        print("Did Change `isAddingPrefix` to \(isOn ? "On" : "Off")")
+        UserDefaultsManager.isAddingPrefix = isOn
     }
 }
 

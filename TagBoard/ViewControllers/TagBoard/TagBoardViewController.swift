@@ -77,11 +77,11 @@ class TagBoardViewController: UIViewController {
         tagsTextView.pinToBottomMargin()
         
         tagsTextView.delegate = self
-        
+        tagsTextView.font = Style.Font.body
+
         if viewModel.tags.isEmpty {
             tagsTextView.text = "#Enter #Your #Hashtags #Here"
             tagsTextView.textColor = .placeholder
-            tagsTextView.font = Style.Font.body
         } else {
             tagsTextView.text = viewModel.tags.joined(separator: " ")
         }

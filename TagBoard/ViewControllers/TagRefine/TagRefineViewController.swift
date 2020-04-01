@@ -15,13 +15,14 @@ class TagRefineViewController: UIViewController {
     private(set) var viewModel: TagRefineViewModel
     
     private let copyButton = UIButton(type: .system)
+    private let bottomWrapperView = UIView(frame: .zero)
     
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionLayout)
     
     private lazy var collectionLayout: AlignedCollectionViewFlowLayout = {
         let layout = AlignedCollectionViewFlowLayout(horizontalAlignment: .left, verticalAlignment: .top)
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        layout.sectionInset = UIEdgeInsets(top: 0, left: Style.Layout.margin, bottom: 0, right: Style.Layout.margin)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: Style.Layout.margin, bottom: 90, right: Style.Layout.margin)
         return layout
     }()
     
@@ -57,6 +58,7 @@ class TagRefineViewController: UIViewController {
                         trailing: Style.Layout.margin)
 
         setupCollectionView()
+        setupBottomWrapper()
         setupCopyButton()
         subscribeToViewModel()
     }
@@ -82,10 +84,25 @@ class TagRefineViewController: UIViewController {
         collectionView.pinToSuperview()
     }
     
+    private func setupBottomWrapper() {
+        view.addSubview(bottomWrapperView)
+        bottomWrapperView.pinToBottom()
+        bottomWrapperView.pinToLeadingAndTrailing()
+        
+        bottomWrapperView.setMargins(top: Style.Layout.margin, leading: Style.Layout.margin, bottom: Style.Layout.marginXL, trailing: Style.Layout.margin)
+        
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = bottomWrapperView.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        bottomWrapperView.addSubview(blurEffectView)
+    }
+    
     private func setupCopyButton() {
-        view.addSubview(copyButton)
+        bottomWrapperView.addSubview(copyButton)
         copyButton.translatesAutoresizingMaskIntoConstraints = false
         copyButton.pinToBottomMargin()
+        copyButton.pinToTopMargin()
         copyButton.pinToLeadingAndTrailingMargins()
         copyButton.heightAnchor.constraint(equalToConstant: Style.Layout.buttonHeight).isActive = true
         

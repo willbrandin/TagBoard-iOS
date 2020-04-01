@@ -95,7 +95,7 @@ enum TagBoardApi: EndPointType {
     }
     
     var headers: HTTPHeaders? {
-        if let token = UserDefaultManager.bearerToken {
+        if let token = UserDefaultsManager.bearerToken {
             return ["Authorization": "Bearer \(token)"]
         }
         
