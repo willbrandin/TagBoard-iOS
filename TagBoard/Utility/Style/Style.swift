@@ -28,6 +28,12 @@ struct Style {
             let fontMetrics = UIFontMetrics(forTextStyle: .body)
             return fontMetrics.scaledFont(for: font)
         }
+        
+        static var caption: UIFont {
+            let font = UIFont.systemFont(ofSize: 14)
+            let fontMetrics = UIFontMetrics(forTextStyle: .caption1)
+            return fontMetrics.scaledFont(for: font)
+        }
     }
     
     struct Layout {

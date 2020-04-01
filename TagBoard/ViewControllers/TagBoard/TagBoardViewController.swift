@@ -77,9 +77,14 @@ class TagBoardViewController: UIViewController {
         tagsTextView.pinToBottomMargin()
         
         tagsTextView.delegate = self
-        tagsTextView.text = "#Enter #Your #Hashtags #Here"
-        tagsTextView.textColor = .placeholder
-        tagsTextView.font = Style.Font.body
+        
+        if viewModel.tags.isEmpty {
+            tagsTextView.text = "#Enter #Your #Hashtags #Here"
+            tagsTextView.textColor = .placeholder
+            tagsTextView.font = Style.Font.body
+        } else {
+            tagsTextView.text = viewModel.tags.joined(separator: " ")
+        }
     }
     
     // MARK: - Actions
@@ -111,5 +116,13 @@ extension TagBoardViewController: UITextViewDelegate {
             tagsTextView.textColor = .placeholder
         }
     }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == " " {
+            textView.insertText(" #")
+            return false
+        }
+        
+        return true
+    }
 }
-

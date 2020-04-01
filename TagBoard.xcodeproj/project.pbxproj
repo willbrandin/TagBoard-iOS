@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		D20A6EEE23736B1E00A04436 /* TBHomeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20A6EED23736B1E00A04436 /* TBHomeListViewModel.swift */; };
+		D21026442434E7BD009FF553 /* TagRefineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21026432434E7BD009FF553 /* TagRefineViewController.swift */; };
+		D21026462434E7C8009FF553 /* TagRefineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21026452434E7C8009FF553 /* TagRefineViewModel.swift */; };
+		D21026482434F6C0009FF553 /* TagRefineViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21026472434F6C0009FF553 /* TagRefineViewController+CollectionView.swift */; };
+		D210264B2434F7F1009FF553 /* ChipCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210264A2434F7F1009FF553 /* ChipCollectionViewCell.swift */; };
+		D210264D2434F8B2009FF553 /* ChipCollectionViewCell+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210264C2434F8B2009FF553 /* ChipCollectionViewCell+Style.swift */; };
+		D210265024351119009FF553 /* AlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210264F24351119009FF553 /* AlignedCollectionViewFlowLayout.swift */; };
 		D219C8CB241400EA00CEB903 /* ModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D219C8C8241400EA00CEB903 /* ModalPresenter.swift */; };
 		D219C8CC241400EA00CEB903 /* ModalPresenterStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D219C8C9241400EA00CEB903 /* ModalPresenterStyle.swift */; };
 		D219C8CD241400EA00CEB903 /* ModalPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D219C8CA241400EA00CEB903 /* ModalPresentable.swift */; };
@@ -91,6 +97,12 @@
 
 /* Begin PBXFileReference section */
 		D20A6EED23736B1E00A04436 /* TBHomeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBHomeListViewModel.swift; sourceTree = "<group>"; };
+		D21026432434E7BD009FF553 /* TagRefineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagRefineViewController.swift; sourceTree = "<group>"; };
+		D21026452434E7C8009FF553 /* TagRefineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagRefineViewModel.swift; sourceTree = "<group>"; };
+		D21026472434F6C0009FF553 /* TagRefineViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TagRefineViewController+CollectionView.swift"; sourceTree = "<group>"; };
+		D210264A2434F7F1009FF553 /* ChipCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipCollectionViewCell.swift; sourceTree = "<group>"; };
+		D210264C2434F8B2009FF553 /* ChipCollectionViewCell+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChipCollectionViewCell+Style.swift"; sourceTree = "<group>"; };
+		D210264F24351119009FF553 /* AlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		D219C8C8241400EA00CEB903 /* ModalPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalPresenter.swift; sourceTree = "<group>"; };
 		D219C8C9241400EA00CEB903 /* ModalPresenterStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalPresenterStyle.swift; sourceTree = "<group>"; };
 		D219C8CA241400EA00CEB903 /* ModalPresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalPresentable.swift; sourceTree = "<group>"; };
@@ -155,6 +167,34 @@
 				D20A6EED23736B1E00A04436 /* TBHomeListViewModel.swift */,
 			);
 			path = TagBoardList;
+			sourceTree = "<group>";
+		};
+		D210263F2434E7A9009FF553 /* TagRefine */ = {
+			isa = PBXGroup;
+			children = (
+				D21026492434F7CF009FF553 /* Cell */,
+				D21026432434E7BD009FF553 /* TagRefineViewController.swift */,
+				D21026452434E7C8009FF553 /* TagRefineViewModel.swift */,
+				D21026472434F6C0009FF553 /* TagRefineViewController+CollectionView.swift */,
+			);
+			path = TagRefine;
+			sourceTree = "<group>";
+		};
+		D21026492434F7CF009FF553 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D210264A2434F7F1009FF553 /* ChipCollectionViewCell.swift */,
+				D210264C2434F8B2009FF553 /* ChipCollectionViewCell+Style.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		D210264E24351101009FF553 /* AlignedCollectionLayout */ = {
+			isa = PBXGroup;
+			children = (
+				D210264F24351119009FF553 /* AlignedCollectionViewFlowLayout.swift */,
+			);
+			path = AlignedCollectionLayout;
 			sourceTree = "<group>";
 		};
 		D219C8C7241400EA00CEB903 /* ModalPresenter */ = {
@@ -259,6 +299,7 @@
 		D2B8986123711F2300738821 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D210263F2434E7A9009FF553 /* TagRefine */,
 				D219C8D0241401B900CEB903 /* Home */,
 				D20A6EE923736B0E00A04436 /* TagBoardList */,
 				D2F996C723A18C290075234E /* Landing */,
@@ -342,6 +383,7 @@
 		D2F21F36241195C50039B6C8 /* Subclasses */ = {
 			isa = PBXGroup;
 			children = (
+				D210264E24351101009FF553 /* AlignedCollectionLayout */,
 				D2F21F4A2411CF6B0039B6C8 /* Modals */,
 				D2F21F37241195D30039B6C8 /* Cells */,
 				D2F21F4D2411D2590039B6C8 /* DividerView.swift */,
@@ -492,6 +534,7 @@
 				D2F21F4C2411CF7A0039B6C8 /* TagBoardModalSheet.swift in Sources */,
 				D219C8CC241400EA00CEB903 /* ModalPresenterStyle.swift in Sources */,
 				D2F21F3B2411963F0039B6C8 /* TagListItemCell.swift in Sources */,
+				D210264D2434F8B2009FF553 /* ChipCollectionViewCell+Style.swift in Sources */,
 				D2B8987C2371246D00738821 /* APIConstants.swift in Sources */,
 				D2B898B02372580100738821 /* User.swift in Sources */,
 				D2B8985423711E9900738821 /* FlowEvent.swift in Sources */,
@@ -508,19 +551,24 @@
 				D2D6009B2374AE710072B197 /* UIColor+Palette.swift in Sources */,
 				D219C8D4241401B900CEB903 /* HomeViewController.swift in Sources */,
 				D2B8983A2370DE6600738821 /* AppDelegate.swift in Sources */,
+				D210264B2434F7F1009FF553 /* ChipCollectionViewCell.swift in Sources */,
 				D2F21F3E2411CEA60039B6C8 /* ModalPresenterDelegate.swift in Sources */,
 				D2F996CE23A18C410075234E /* LandingViewModel.swift in Sources */,
+				D21026442434E7BD009FF553 /* TagRefineViewController.swift in Sources */,
 				D2F21F502411D60B0039B6C8 /* UIView+ShowModalView.swift in Sources */,
 				D2B898B623725C7400738821 /* TagBoardViewController.swift in Sources */,
 				D2B898802371259900738821 /* BundleUtil.swift in Sources */,
 				D20A6EEE23736B1E00A04436 /* TBHomeListViewModel.swift in Sources */,
+				D21026462434E7C8009FF553 /* TagRefineViewModel.swift in Sources */,
 				D2B898B2237258BF00738821 /* TagBoard.swift in Sources */,
 				D2B89878237123F200738821 /* TagBoardApi.swift in Sources */,
 				D2F21F4E2411D2590039B6C8 /* DividerView.swift in Sources */,
 				D2D600962374AB7E0072B197 /* UIView+Constraints.swift in Sources */,
+				D210265024351119009FF553 /* AlignedCollectionViewFlowLayout.swift in Sources */,
 				D2B8985523711E9900738821 /* NavigationControllerCoordinatorsTracker.swift in Sources */,
 				D2B8987E2371256000738821 /* InitialConfiguration.swift in Sources */,
 				D2F996CC23A18C390075234E /* LandingViewController.swift in Sources */,
+				D21026482434F6C0009FF553 /* TagRefineViewController+CollectionView.swift in Sources */,
 				D2B898B423725C5B00738821 /* TBHomeListViewController.swift in Sources */,
 				D2F21F39241196000039B6C8 /* ListView+CellLoadableView.swift in Sources */,
 			);

@@ -38,6 +38,7 @@ class TagBoardViewModel {
     init(tagBoard: TagBoard) {
         self.tagBoard = tagBoard
         self.title = tagBoard.title
+        self.tags = tagBoard.tags
     }
     
     // MARK: - Methods

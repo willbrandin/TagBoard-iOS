@@ -52,7 +52,7 @@ class TagBoardModalSheet: ModalPresentable {
     
     // MARK: - Private Methods
     
-    private func setupView() {
+    private func setupView() {        
         addSubview(contentView)
         contentView.pinToSuperview()
         contentView.setMargins(top: 0, leading: Style.Layout.margin, bottom: 0, trailing: Style.Layout.margin)

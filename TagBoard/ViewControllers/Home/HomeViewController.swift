@@ -38,6 +38,10 @@ class HomeViewController: UISplitViewController, UISplitViewControllerDelegate, 
             self?.presentSettings()
         }
         
+        tagListViewController.onCopyTags = { [weak self] tags in
+            self?.presentTagRefine(with: tags)
+        }
+        
         return tagListViewController
     }
     
@@ -68,6 +72,13 @@ class HomeViewController: UISplitViewController, UISplitViewControllerDelegate, 
         let controller = UINavigationController(rootViewController: viewController)
         viewController.navigationController?.navigationBar.prefersLargeTitles = true
         
+        tagListViewController.navigationController?.present(controller, animated: true, completion: nil)
+    }
+    
+    private func presentTagRefine(with tags: [TagBoard]) {
+        let viewController = TagRefineViewController(viewModel: TagRefineViewModel(tagBoards: tags))
+        let controller = UINavigationController(rootViewController: viewController)
+
         tagListViewController.navigationController?.present(controller, animated: true, completion: nil)
     }
 }

@@ -15,6 +15,7 @@ class TBHomeListViewModel {
     var onIsLoading: ((Bool) -> Void)?
     var onDataSourceUpdated: (() -> Void)?
     var onTapDisclosure: ((TagBoard) -> Void)?
+    var onDisplayCopyButton: ((Bool) -> Void)?
     
     let numberOfSections = 1
     
@@ -25,6 +26,16 @@ class TBHomeListViewModel {
     private var tagBoards = [TagBoard]() {
         didSet {
             onDataSourceUpdated?()
+            
+            if !selectedBoards.isEmpty {
+                selectedBoards = [TagBoard]()
+            }
+        }
+    }
+    
+    private(set) var selectedBoards = [TagBoard]() {
+        didSet {
+            onDisplayCopyButton?(!selectedBoards.isEmpty)
         }
     }
     
@@ -37,9 +48,14 @@ class TBHomeListViewModel {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.onIsLoading?(false)
-            for i in 0..<5 {
-                let board = TagBoard(id: "\(i)", title: "TAG - \(i)", tags: ["Hello", "Hie"], createdDate: "2019-07-07", lastUpdatedDate: nil)
-                list.append(board)
+            for i in 0..<10 {
+                if (i % 2) == 0 {
+                    let board = TagBoard(id: "\(i)", title: "TAG - \(i)", tags: ["#Helasdfasdflo", "#Hisdafsdfasde", "#Hisdafsdfasde", "HASLDLASDFOASDF", "#Helasdfasdflo", "#Hisdafsdfasde", "#Hisdafsdfasde", "HASLDLASDFOASDF", "#Helasdfasdflo", "#Hisdafsdfasde", "#HELLO", "#Hisdafsdfasde", "HASLDLASDFOASDF", "#Helasdfasdflo", "#Hisdafsdfasde", "#Hisdafsdfasde", "HASLDLASDFOASDF"], createdDate: "2019-07-07", lastUpdatedDate: nil)
+                    list.append(board)
+                } else {
+                    let board = TagBoard(id: "\(i)", title: "TAG - \(i)", tags: ["#Hasdlo", "#Hifasde", "#Hisdaf", "#HASLDLASDFOASDF"], createdDate: "2019-07-07", lastUpdatedDate: nil)
+                    list.append(board)
+                }
             }
             
             print("INJECTED")
@@ -78,5 +94,20 @@ class TBHomeListViewModel {
         } else {
             tagBoards.append(tag)
         }
+    }
+    
+    func didSelect(at index: Int) {
+        let tag = tagBoards[index]
+        selectedBoards.append(tag)
+    }
+    
+    func didDeselect(at index: Int) {
+        let tag = tagBoards[index]
+        guard let tagboard = selectedBoards.first(where: { $0.id == tag.id }),
+            let index = selectedBoards.firstIndex(of: tagboard) else {
+            return
+        }
+        
+        selectedBoards.remove(at: index)
     }
 }

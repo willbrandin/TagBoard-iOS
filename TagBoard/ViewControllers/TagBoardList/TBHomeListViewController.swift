@@ -14,8 +14,14 @@ class TBHomeListViewController: UITableViewController, LoadingView {
 
     var onEdit: ((TagBoard) -> Void)?
     var onTapSettings: (() -> Void)?
+    var onCopyTags:(([TagBoard]) -> Void)?
     
     private var viewModel = TBHomeListViewModel()
+    private var copyButtonBottomConstraint: NSLayoutConstraint!
+    
+    // MARK: - Subviews
+    
+    private let copyButton = UIButton(type: .system)
         
     // MARK: - Initializer
     
@@ -35,6 +41,8 @@ class TBHomeListViewController: UITableViewController, LoadingView {
         title = "Tag"
         view.backgroundColor = .background
         
+        view.setMargins(top: Style.Layout.margin, leading: Style.Layout.margin, bottom: Style.Layout.margin, trailing: Style.Layout.margin)
+        
         let settingsIcon = UIImage(systemName: "gear")?.withTintColor(.primary)
         let addIcon = UIImage(systemName: "plus")?.withTintColor(.primary)
         
@@ -45,8 +53,15 @@ class TBHomeListViewController: UITableViewController, LoadingView {
 
         tableView.register(TagListItemCell.self)
         tableView.allowsMultipleSelection = true
-        
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 90, right: 0)
+        setupCopyButton()
         subscribeToViewModel()
+    }
+    
+    // MARK: - Methods
+    
+    func didUpdate(_ tag: TagBoard) {
+        viewModel.didUpdate(tag)
     }
     
     // MARK: - Private Methods
@@ -60,6 +75,16 @@ class TBHomeListViewController: UITableViewController, LoadingView {
             self?.showTagBoardModalSheet(for: tagBoard)
         }
         
+        viewModel.onDisplayCopyButton = { [weak self] showButton in
+            DispatchQueue.main.async {
+                if showButton {
+                    self?.showButton()
+                } else {
+                    self?.hideButton()
+                }
+            }
+        }
+        
         viewModel.onIsLoading = { [weak self] isLoading in
             DispatchQueue.main.async {
                 if isLoading {
@@ -71,6 +96,23 @@ class TBHomeListViewController: UITableViewController, LoadingView {
         }
         
         viewModel.requestList()
+    }
+    
+    private func setupCopyButton() {
+        view.addSubview(copyButton)
+        copyButton.translatesAutoresizingMaskIntoConstraints = false
+        copyButtonBottomConstraint = copyButton.pinToBottomMargin()
+        copyButton.pinToLeadingAndTrailingMargins()
+        copyButton.heightAnchor.constraint(equalToConstant: Style.Layout.buttonHeight).isActive = true
+        
+        copyButton.layer.cornerRadius = 8.0
+        copyButton.titleLabel?.font = Style.Font.headline
+        copyButton.titleLabel?.textAlignment = .center
+        copyButton.setTitleColor(.white, for: .normal)
+        copyButton.backgroundColor = .primary
+        copyButton.setTitle("Copy Tags", for: .normal)
+        copyButton.addTarget(self, action: #selector(didTapCopy), for: .touchUpInside)
+        copyButton.alpha = 0
     }
     
     private func showTagBoardModalSheet(for tagboard: TagBoard) {
@@ -91,9 +133,24 @@ class TBHomeListViewController: UITableViewController, LoadingView {
         let modalView = TagBoardModalSheet(content: content)
         view.showModalView(view: modalView)
     }
+        
+    private func showButton() {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
+            self?.copyButtonBottomConstraint.constant = -Style.Layout.margin
+            self?.view.layoutIfNeeded()
+            self?.copyButton.alpha = 1
+        })
+        
+        let tagCount = viewModel.selectedBoards.compactMap({ $0.tags.count }).reduce(0, +)
+        copyButton.setTitle("Copy \(tagCount) Hashtags!", for: .normal)
+    }
     
-    func didUpdate(_ tag: TagBoard) {
-        viewModel.didUpdate(tag)
+    private func hideButton() {
+        UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseIn, animations: { [weak self] in
+            self?.copyButtonBottomConstraint.constant = Style.Layout.margin + 100
+            self?.view.layoutIfNeeded()
+            self?.copyButton.alpha = 0
+        })
     }
     
     // MARK: - Actions
@@ -102,6 +159,10 @@ class TBHomeListViewController: UITableViewController, LoadingView {
         print("SETTINGS")
         onTapSettings?()
         viewModel.requestList()
+    }
+    
+    @objc private func didTapCopy() {
+        onCopyTags?(viewModel.selectedBoards)
     }
     
     @objc private func didTapAdd() {
@@ -147,5 +208,13 @@ extension TBHomeListViewController {
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return nil
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.didSelect(at: indexPath.row)
+    }
+    
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        viewModel.didDeselect(at: indexPath.row)
     }
 }
