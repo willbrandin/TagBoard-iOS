@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RocketNetworking
 
 class TBHomeListViewModel {
     
@@ -44,22 +45,11 @@ class TBHomeListViewModel {
     func requestList() {
         print("GETTING DATA")
         onIsLoading?(true)
-        var list = [TagBoard]()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.onIsLoading?(false)
-            for i in 0..<10 {
-                if (i % 2) == 0 {
-                    let board = TagBoard(id: "\(i)", title: "TAG - \(i)", tags: ["#Helasdfasdflo", "#Hisdafsdfasde", "#Hisdafsdfasde", "#HASLDLASDFOASDF", "#Helasdfasdflo", "#Hisdafsdfasde", "#Hisdafsdfasde", "#HASLDLASDFOASDF", "#Helasdfasdflo", "#Hisdafsdfasde", "#HELLO", "#Hisdafsdfasde", "#HASLDLASDFOASDF", "#Helasdfasdflo", "#Hisdafsdfasde", "#Hisdafsdfasde", "#HASLDLASDFOASDF"], createdDate: "2019-07-07", lastUpdatedDate: nil)
-                    list.append(board)
-                } else {
-                    let board = TagBoard(id: "\(i)", title: "TAG - \(i)", tags: ["#Hasdlo", "#Hifasde", "#Hisdaf", "#HASLDLASDFOASDF"], createdDate: "2019-07-07", lastUpdatedDate: nil)
-                    list.append(board)
-                }
+        NetworkManager.sharedInstance.request(for: .getTagBoards, [TagBoard].self) { [weak self] result in
+            DispatchQueue.main.async {
+                self?.handleFetch(result: result)
             }
-            
-            print("INJECTED")
-            self.tagBoards = list
         }
     }
     
@@ -109,5 +99,19 @@ class TBHomeListViewModel {
         }
         
         selectedBoards.remove(at: index)
+    }
+    
+    // MARK: - Private Methods
+    
+    private func handleFetch(result: Result<[TagBoard], APIError>) {
+        onIsLoading?(false)
+        
+        switch result {
+        case .success(let tags):
+            self.tagBoards = tags
+            
+        case .failure(let error):
+            print(error)
+        }
     }
 }

@@ -18,14 +18,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         configureNetworkLayer()
         setupWindow()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(handleSignOut), name: .unauthorized, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleSignOut), name: .logout, object: nil)
+
         return true
     }
     
     // MARK: - Configuration
     
-    func setupWindow() {
+    private func setupWindow() {
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = createHomeViewController()
+        setRootView()
         window?.makeKeyAndVisible()
         
         let standard = UINavigationBarAppearance()
@@ -38,12 +41,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = .primaryText
     }
     
-    func createHomeViewController() -> UIViewController {
+    private func createHomeViewController() -> UIViewController {
         let home = HomeViewController()
         return home
     }
     
-    func createLandingViewController() -> UIViewController {
+    private func createLandingViewController() -> UIViewController {
         let landing = LandingViewController()
         
         landing.onComplete = { [weak self] in
@@ -51,5 +54,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         return landing
+    }
+    
+    private func setRootView() {
+        let isSignedIn = UserDefaultsManager.bearerToken != nil && UserDefaultsManager.user != nil
+        window?.rootViewController = isSignedIn ? createHomeViewController() : createLandingViewController()
+    }
+    
+    // MARK: - Actions
+    
+    @objc private func handleSignOut() {
+        UserDefaultsManager.isAddingPrefix = false
+        UserDefaultsManager.bearerToken = nil
+        UserDefaultsManager.user = nil
+        setRootView()
     }
 }

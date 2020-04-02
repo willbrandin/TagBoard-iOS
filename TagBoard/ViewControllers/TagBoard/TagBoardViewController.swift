@@ -31,6 +31,10 @@ class TagBoardViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        print("DEINIT - \(String(describing: self))")
+    }
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {

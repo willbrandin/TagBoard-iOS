@@ -21,6 +21,12 @@
 		D210266024352CF4009FF553 /* CenteredSingleLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210265F24352CF4009FF553 /* CenteredSingleLineCell.swift */; };
 		D2102662243530AE009FF553 /* PrefixTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2102661243530AE009FF553 /* PrefixTableViewCell.swift */; };
 		D2102668243535C6009FF553 /* CloseBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2102667243535C6009FF553 /* CloseBarButton.swift */; };
+		D210266A2435566C009FF553 /* UIViewController+IsDarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21026692435566C009FF553 /* UIViewController+IsDarkMode.swift */; };
+		D210266C24362D8B009FF553 /* LeadingDisclosureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210266B24362D8B009FF553 /* LeadingDisclosureCell.swift */; };
+		D210266F24362FC8009FF553 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210266E24362FC8009FF553 /* ProfileViewController.swift */; };
+		D210267124362FD0009FF553 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210267024362FD0009FF553 /* ProfileViewModel.swift */; };
+		D2102673243640AA009FF553 /* SignInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2102672243640AA009FF553 /* SignInResponse.swift */; };
+		D210267524364301009FF553 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210267424364301009FF553 /* Notification+Name.swift */; };
 		D219C8CB241400EA00CEB903 /* ModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D219C8C8241400EA00CEB903 /* ModalPresenter.swift */; };
 		D219C8CC241400EA00CEB903 /* ModalPresenterStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D219C8C9241400EA00CEB903 /* ModalPresenterStyle.swift */; };
 		D219C8CD241400EA00CEB903 /* ModalPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D219C8CA241400EA00CEB903 /* ModalPresentable.swift */; };
@@ -117,6 +123,12 @@
 		D210265F24352CF4009FF553 /* CenteredSingleLineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredSingleLineCell.swift; sourceTree = "<group>"; };
 		D2102661243530AE009FF553 /* PrefixTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefixTableViewCell.swift; sourceTree = "<group>"; };
 		D2102667243535C6009FF553 /* CloseBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseBarButton.swift; sourceTree = "<group>"; };
+		D21026692435566C009FF553 /* UIViewController+IsDarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+IsDarkMode.swift"; sourceTree = "<group>"; };
+		D210266B24362D8B009FF553 /* LeadingDisclosureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadingDisclosureCell.swift; sourceTree = "<group>"; };
+		D210266E24362FC8009FF553 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D210267024362FD0009FF553 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		D2102672243640AA009FF553 /* SignInResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponse.swift; sourceTree = "<group>"; };
+		D210267424364301009FF553 /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
 		D219C8C8241400EA00CEB903 /* ModalPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalPresenter.swift; sourceTree = "<group>"; };
 		D219C8C9241400EA00CEB903 /* ModalPresenterStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalPresenterStyle.swift; sourceTree = "<group>"; };
 		D219C8CA241400EA00CEB903 /* ModalPresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalPresentable.swift; sourceTree = "<group>"; };
@@ -239,6 +251,15 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
+		D210266D24362FB8009FF553 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				D210266E24362FC8009FF553 /* ProfileViewController.swift */,
+				D210267024362FD0009FF553 /* ProfileViewModel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		D219C8C7241400EA00CEB903 /* ModalPresenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -326,6 +347,8 @@
 				D2D600952374AB7E0072B197 /* UIView+Constraints.swift */,
 				D2F21F38241196000039B6C8 /* ListView+CellLoadableView.swift */,
 				D2F21F4F2411D60B0039B6C8 /* UIView+ShowModalView.swift */,
+				D21026692435566C009FF553 /* UIViewController+IsDarkMode.swift */,
+				D210267424364301009FF553 /* Notification+Name.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -341,6 +364,7 @@
 		D2B8986123711F2300738821 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D210266D24362FB8009FF553 /* Profile */,
 				D210265224352689009FF553 /* Settings */,
 				D210263F2434E7A9009FF553 /* TagRefine */,
 				D219C8D0241401B900CEB903 /* Home */,
@@ -400,6 +424,7 @@
 			children = (
 				D2B898AF2372580100738821 /* User.swift */,
 				D2B898B1237258BF00738821 /* TagBoard.swift */,
+				D2102672243640AA009FF553 /* SignInResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -440,6 +465,7 @@
 			children = (
 				D2F21F3A2411963F0039B6C8 /* TagListItemCell.swift */,
 				D210265F24352CF4009FF553 /* CenteredSingleLineCell.swift */,
+				D210266B24362D8B009FF553 /* LeadingDisclosureCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -586,6 +612,7 @@
 				D2B8985423711E9900738821 /* FlowEvent.swift in Sources */,
 				D2D600992374AD9A0072B197 /* Style.swift in Sources */,
 				D210266024352CF4009FF553 /* CenteredSingleLineCell.swift in Sources */,
+				D2102673243640AA009FF553 /* SignInResponse.swift in Sources */,
 				D219C8CD241400EA00CEB903 /* ModalPresentable.swift in Sources */,
 				D2B898752371230C00738821 /* UserDefaultsManager.swift in Sources */,
 				D219C8CF2414014200CEB903 /* CellLoadableView.swift in Sources */,
@@ -597,13 +624,16 @@
 				D2B8985B23711EEF00738821 /* UIViewController+LoadingView.swift in Sources */,
 				D2B8985723711E9900738821 /* CoordinatorsTracker.swift in Sources */,
 				D2D6009B2374AE710072B197 /* UIColor+Palette.swift in Sources */,
+				D210266A2435566C009FF553 /* UIViewController+IsDarkMode.swift in Sources */,
 				D219C8D4241401B900CEB903 /* HomeViewController.swift in Sources */,
 				D2B8983A2370DE6600738821 /* AppDelegate.swift in Sources */,
 				D210264B2434F7F1009FF553 /* ChipCollectionViewCell.swift in Sources */,
 				D2F21F3E2411CEA60039B6C8 /* ModalPresenterDelegate.swift in Sources */,
 				D2F996CE23A18C410075234E /* LandingViewModel.swift in Sources */,
+				D210267124362FD0009FF553 /* ProfileViewModel.swift in Sources */,
 				D210265C2435277B009FF553 /* LargeTableViewHeader.swift in Sources */,
 				D21026442434E7BD009FF553 /* TagRefineViewController.swift in Sources */,
+				D210266F24362FC8009FF553 /* ProfileViewController.swift in Sources */,
 				D2F21F502411D60B0039B6C8 /* UIView+ShowModalView.swift in Sources */,
 				D2B898B623725C7400738821 /* TagBoardViewController.swift in Sources */,
 				D2B898802371259900738821 /* BundleUtil.swift in Sources */,
@@ -622,7 +652,9 @@
 				D2F996CC23A18C390075234E /* LandingViewController.swift in Sources */,
 				D21026482434F6C0009FF553 /* TagRefineViewController+CollectionView.swift in Sources */,
 				D2B898B423725C5B00738821 /* TBHomeListViewController.swift in Sources */,
+				D210267524364301009FF553 /* Notification+Name.swift in Sources */,
 				D2F21F39241196000039B6C8 /* ListView+CellLoadableView.swift in Sources */,
+				D210266C24362D8B009FF553 /* LeadingDisclosureCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

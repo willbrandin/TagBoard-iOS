@@ -14,6 +14,7 @@ struct UserDefaultsManager {
     
     private static let bearerTokenKey = "bearerTokenKey"
     private static let isAddingPrefixKey = "isAddingPrefixKey"
+    private static let loggedInUserInfoKey = "loggedInUserInfoKey"
     
     // MARK: - Stored Values
     
@@ -36,6 +37,28 @@ struct UserDefaultsManager {
         }
         set {
             UserDefaults.standard.set(newValue, forKey: isAddingPrefixKey)
+        }
+    }
+    
+    static var user: User? {
+        get {
+            if let savedAccount = UserDefaults.standard.object(forKey: loggedInUserInfoKey) as? Data {
+                let decoder = JSONDecoder()
+                if let loadedAccount = try? decoder.decode(User.self, from: savedAccount) {
+                    return loadedAccount
+                } else {
+                    return nil
+                }
+            } else {
+                return nil
+            }
+        }
+        set {
+            let encoder = JSONEncoder()
+            if let encoded = try? encoder.encode(newValue) {
+                let defaults = UserDefaults.standard
+                defaults.set(encoded, forKey: loggedInUserInfoKey)
+            }
         }
     }
 }

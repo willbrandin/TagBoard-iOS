@@ -40,4 +40,9 @@ extension UIImage {
         let config = UIImage.SymbolConfiguration(textStyle: .body)
         return UIImage(systemName: "plus", withConfiguration: config)!
     }
+    
+    static var chevronRight: UIImage {
+        let config = UIImage.SymbolConfiguration(textStyle: .headline)
+        return UIImage(systemName: "chevron.right", withConfiguration: config)!
+    }
 }

@@ -25,6 +25,12 @@ class LandingViewController: UIViewController, LoadingView {
     private let button = ASAuthorizationAppleIDButton(authorizationButtonType: .signIn,
                                                       authorizationButtonStyle: .white)
     
+    // MARK: - Deinit
+    
+    deinit {
+        print("DEINIT - \(String(describing: self))")
+    }
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -82,11 +88,18 @@ class LandingViewController: UIViewController, LoadingView {
         viewModel.onComplete = onComplete
     }
     
+    #if DEBUG
+    private func performMockSignIn() {
+        let user = User(id: nil, firstName: "Bill", lastName: "Brandin", email: "testexample1234@example.com", userCredential: "asdjfalsdfjjs")
+        viewModel.requestSignIn(for: user)
+    }
+    #endif
+    
     // MARK: - Actions
     
     @objc private func buttonTapped() {
         #if DEBUG
-        onComplete?()
+        performMockSignIn()
         #else
         let request = ASAuthorizationAppleIDProvider().createRequest()
         request.requestedScopes = viewModel.authorizationScopes
@@ -100,12 +113,12 @@ class LandingViewController: UIViewController, LoadingView {
 
 extension LandingViewController: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        
         guard let credential = authorization.credential as? ASAuthorizationAppleIDCredential else {
             return
         }
         
-        viewModel.requestSignIn(with: credential)
+        let user = User(authorization: credential)
+        viewModel.requestSignIn(for: user)
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {

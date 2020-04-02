@@ -32,9 +32,16 @@ class SettingsViewController: UIViewController {
         addCloseButton(image: .close)
 
         setupTableView()
+        subscribeToViewModel()
     }
     
     // MARK: - Private Methods
+    
+    private func subscribeToViewModel() {
+        viewModel.onTapProfile = { [weak self] in
+            self?.showProfileViewController()
+        }
+    }
     
     private func setupTableView() {
         view.addSubview(tableView)
@@ -46,5 +53,11 @@ class SettingsViewController: UIViewController {
         tableView.register(LargeTableViewHeader.self)
         tableView.register(CenteredSingleLineCell.self)
         tableView.register(PrefixTableViewCell.self)
+        tableView.register(LeadingDisclosureCell.self)
+    }
+    
+    private func showProfileViewController() {
+        let viewController = ProfileViewController()
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }

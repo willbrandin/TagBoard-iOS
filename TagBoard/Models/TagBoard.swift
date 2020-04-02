@@ -14,4 +14,9 @@ struct TagBoard: Codable, Equatable {
     let tags: [String]
     let createdDate: String?
     let lastUpdatedDate: String?
+    
+    private enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case title, tags, createdDate, lastUpdatedDate
+    }
 }

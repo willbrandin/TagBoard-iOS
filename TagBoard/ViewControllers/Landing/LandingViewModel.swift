@@ -8,6 +8,7 @@
 
 import Foundation
 import AuthenticationServices
+import RocketNetworking
 
 @available(iOS 13.0, *)
 class LandingViewModel {
@@ -25,13 +26,31 @@ class LandingViewModel {
     
     // MARK: - Methods
     
-    func requestSignIn(with credential: ASAuthorizationAppleIDCredential) {
-        print(credential)
-        onComplete?()
+    func requestSignIn(for user: User) {
+        NetworkManager.sharedInstance.request(for: .signInUser(user), SignIn.self) { [weak self] result in
+            DispatchQueue.main.async {
+                self?.handleSignInResult(result: result)
+            }
+        }
     }
     
     func authorizationDidFail(with error: Error) {
         print("COULD NOT GET CREDENTIALS -- \(error.localizedDescription)")
         onFailed?(error)
+    }
+    
+    // MARK: - Private Methods
+    
+    private func handleSignInResult(result: Result<SignIn, APIError>) {
+        switch result {
+        case .success(let signInResponse):
+            print(signInResponse)
+            UserDefaultsManager.bearerToken = signInResponse.token
+            UserDefaultsManager.user = signInResponse.user
+            onComplete?()
+            
+        case .failure(let apiError):
+            authorizationDidFail(with: apiError)
+        }
     }
 }

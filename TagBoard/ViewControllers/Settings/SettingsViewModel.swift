@@ -40,8 +40,19 @@ class SettingsViewModel {
     
     // MARK: - Properties
     
+    var onTapProfile: (() -> Void)?
+    
     var numberOfSections: Int {
         return SettingSection.allCases.count
+    }
+    
+    private var user: User {
+        guard let user = UserDefaultsManager.user else {
+            logout() // Sign out before error to end fatal loop
+            fatalError("User Is nil")
+        }
+        
+        return user
     }
     
     // MARK: - Methods
@@ -63,10 +74,16 @@ class SettingsViewModel {
         }
         
         switch section {
+        case .profile:
+            let cell: LeadingDisclosureCell = tableView.deqeueReusableCell(for: indexPath)
+            cell.setCell(title: user.fullName)
+            return cell
+            
         case .prefix:
             let cell: PrefixTableViewCell = tableView.deqeueReusableCell(for: indexPath)
             cell.onSwitchChanged = self.handleSwitch
             cell.setSwitch(isOn: UserDefaultsManager.isAddingPrefix)
+            cell.selectionStyle = .none
             return cell
             
         case .share:
@@ -79,11 +96,6 @@ class SettingsViewModel {
         case .logout:
             let cell: CenteredSingleLineCell = tableView.deqeueReusableCell(for: indexPath)
             cell.setCell(title: "Log Out", style: .dangerStyle)
-            return cell
-            
-        default:
-            let cell: CenteredSingleLineCell = tableView.deqeueReusableCell(for: indexPath)
-            cell.setCell(title: "CELL TITLE", style: .standardStyle)
             return cell
         }
     }
@@ -109,11 +121,31 @@ class SettingsViewModel {
         }
     }
     
+    func didSelect(at index: IndexPath) {
+        guard let section = SettingSection(rawValue: index.section) else {
+            return
+        }
+        
+        switch section {
+        case .profile:
+            onTapProfile?()
+            
+        case .logout:
+            logout()
+            
+        default:
+            break
+        }
+    }
+    
     // MARK: - Private Methods
     
     private func handleSwitch(_ isOn: Bool) {
         print("Did Change `isAddingPrefix` to \(isOn ? "On" : "Off")")
         UserDefaultsManager.isAddingPrefix = isOn
     }
+    
+    private func logout() {
+        NotificationCenter.default.post(name: .logout, object: nil)
+    }
 }
-

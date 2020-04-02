@@ -16,6 +16,7 @@ class TagRefineViewController: UIViewController {
     
     private let copyButton = UIButton(type: .system)
     private let bottomWrapperView = UIView(frame: .zero)
+    private var blurEffectView: UIVisualEffectView!
     
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionLayout)
     
@@ -63,6 +64,14 @@ class TagRefineViewController: UIViewController {
         subscribeToViewModel()
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        let blurStyle = isDarkMode ? UIBlurEffect.Style.dark : UIBlurEffect.Style.light
+        let blurEffect = UIBlurEffect(style: blurStyle)
+        blurEffectView.effect = blurEffect
+    }
+    
     // MARK: - Private Methods
     
     private func subscribeToViewModel() {
@@ -89,13 +98,18 @@ class TagRefineViewController: UIViewController {
         bottomWrapperView.pinToBottom()
         bottomWrapperView.pinToLeadingAndTrailing()
         
-        bottomWrapperView.setMargins(top: Style.Layout.margin, leading: Style.Layout.margin, bottom: Style.Layout.marginXL, trailing: Style.Layout.margin)
+        bottomWrapperView.setMargins(top: Style.Layout.margin,
+                                     leading: Style.Layout.margin,
+                                     bottom: Style.Layout.marginXL,
+                                     trailing: Style.Layout.margin)
         
-        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        let blurStyle = isDarkMode ? UIBlurEffect.Style.dark : UIBlurEffect.Style.light
+        
+        let blurEffect = UIBlurEffect(style: blurStyle)
+        blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = bottomWrapperView.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        bottomWrapperView.addSubview(blurEffectView)
+        bottomWrapperView.insertSubview(blurEffectView, at: 0)
     }
     
     private func setupCopyButton() {

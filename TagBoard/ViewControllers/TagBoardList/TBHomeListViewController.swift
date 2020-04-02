@@ -18,7 +18,7 @@ class TBHomeListViewController: UITableViewController, LoadingView {
     
     private var viewModel = TBHomeListViewModel()
     private var copyButtonBottomConstraint: NSLayoutConstraint!
-    
+        
     // MARK: - Subviews
     
     private let copyButton = UIButton(type: .system)
@@ -31,6 +31,10 @@ class TBHomeListViewController: UITableViewController, LoadingView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        print("DEINIT - \(String(describing: self))")
     }
     
     // MARK: - Life Cycle
@@ -46,7 +50,10 @@ class TBHomeListViewController: UITableViewController, LoadingView {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: .gear, style: .plain, target: self, action: #selector(didTapSettings))
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: .plus, style: .plain, target: self, action: #selector(didTapAdd))
         navigationController?.navigationBar.prefersLargeTitles = true
-
+        
+        refreshControl = UIRefreshControl(frame: .zero)
+        refreshControl?.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
+        
         tableView.register(TagListItemCell.self)
         tableView.allowsMultipleSelection = true
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 90, right: 0)
@@ -65,6 +72,7 @@ class TBHomeListViewController: UITableViewController, LoadingView {
     private func subscribeToViewModel() {
         viewModel.onDataSourceUpdated = { [weak self] in
             self?.tableView.reloadData()
+            self?.refreshControl?.endRefreshing()
         }
         
         viewModel.onTapDisclosure = { [weak self] tagBoard in
@@ -83,7 +91,7 @@ class TBHomeListViewController: UITableViewController, LoadingView {
         
         viewModel.onIsLoading = { [weak self] isLoading in
             DispatchQueue.main.async {
-                if isLoading {
+                if isLoading && !(self?.refreshControl?.isRefreshing ?? false) {
                     self?.showLoadingView()
                 } else {
                     self?.hideLoadingView()
@@ -170,6 +178,10 @@ class TBHomeListViewController: UITableViewController, LoadingView {
             let addIcon = UIImage(systemName: "plus")
             navigationItem.rightBarButtonItem = UIBarButtonItem(image: addIcon, style: .plain, target: self, action: #selector(didTapAdd))
         }
+    }
+    
+    @objc private func refresh(sender: UIRefreshControl) {
+        viewModel.requestList()
     }
 }
 

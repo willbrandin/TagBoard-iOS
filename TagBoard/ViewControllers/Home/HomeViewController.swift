@@ -15,6 +15,12 @@ class HomeViewController: UISplitViewController, UISplitViewControllerDelegate, 
     private var tagListViewController: TBHomeListViewController!
     private var tagBoardViewController: TagBoardViewController!
     
+    // MARK: - Deinit
+    
+    deinit {
+        print("DEINIT - \(String(describing: self))")
+    }
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
